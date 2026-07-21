@@ -1,0 +1,17 @@
+# Dependencies / build tooling (site is dependency-free)
+node_modules/
+package.json
+package-lock.json
+
+# Unused duplicate image set (site uses portfolio_images/)
+portfolio_images_1/
+
+# Private source notes — not part of the published site
+portfolio.md
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.log
+.vscode/
+.idea/
