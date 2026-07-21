@@ -1434,6 +1434,18 @@ a { color: inherit; }
 }
 .game-soon:hover { transform: none; box-shadow: var(--shadow-sm); border-color: var(--line); }
 
+/* Gatka Warriors — external game card */
+.art-gatka {
+  background: linear-gradient(140deg, #FFD9A0, var(--coral));
+}
+.art-gatka i {
+  font-size: 3.2rem;
+  font-style: normal;
+  filter: drop-shadow(0 6px 10px rgba(90, 46, 20, .25));
+  transition: transform .5s var(--ease);
+}
+.game-card:hover .art-gatka i { transform: rotate(-12deg) scale(1.12); }
+
 .game-body {
   display: flex;
   flex-direction: column;
