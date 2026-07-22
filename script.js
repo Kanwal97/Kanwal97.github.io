@@ -166,6 +166,7 @@
 
     $('.modal-close', modal).focus();
     document.addEventListener('keydown', onModalKey);
+    syncMotion();
   }
 
   function closeGame() {
@@ -183,6 +184,7 @@
     currentId = null;
 
     if (lastFocus && lastFocus.focus) lastFocus.focus();
+    syncMotion();
   }
 
   /* Esc to close + focus trap so Tab stays inside the dialog */
@@ -237,6 +239,7 @@
     document.body.style.overflow = 'hidden';
     $('.lightbox-close', lightbox).focus();
     document.addEventListener('keydown', onLbKey);
+    syncMotion();
   }
 
   function closeLightbox() {
@@ -249,6 +252,7 @@
     if (!caseOpen) document.body.style.overflow = '';
     document.removeEventListener('keydown', onLbKey);
     if (lbLastFocus && lbLastFocus.focus) lbLastFocus.focus();
+    syncMotion();
   }
 
   function onLbKey(e) {
@@ -340,6 +344,7 @@
     caseBody.scrollTop = 0;
     $('.modal-close', caseModal).focus();
     document.addEventListener('keydown', onCaseKey);
+    syncMotion();
   }
 
   function closeCase() {
@@ -350,6 +355,7 @@
     // If the lightbox is stacked on top, it manages the scroll lock itself
     if (lightbox.hidden) document.body.style.overflow = '';
     if (caseLastFocus && caseLastFocus.focus) caseLastFocus.focus();
+    syncMotion();
   }
 
   function onCaseKey(e) {
@@ -398,5 +404,17 @@
 
   /* ── Footer year ──────────────────────────────────────────── */
   $('#year').textContent = new Date().getFullYear();
+
+  /* ── Pause continuous background animations when nobody's watching ──
+     Hidden tab, or any full-screen modal covering the page → freeze the
+     aurora / marquee / pulse so the GPU isn't compositing for nothing. */
+  function anyModalOpen() {
+    return !modal.hidden || !caseModal.hidden || !lightbox.hidden;
+  }
+  function syncMotion() {
+    root.classList.toggle('motion-paused', document.hidden || anyModalOpen());
+  }
+  document.addEventListener('visibilitychange', syncMotion);
+  syncMotion();
 
 })();

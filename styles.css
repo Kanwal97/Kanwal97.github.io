@@ -147,27 +147,27 @@ a { color: inherit; }
 .blob {
   position: absolute;
   border-radius: 50%;
-  filter: blur(90px);
+  filter: blur(55px);
   opacity: .5;
   will-change: transform;
 }
 
 .blob-1 {
-  width: 46vw; height: 46vw;
-  top: -12vw; right: -8vw;
+  width: 40vw; height: 40vw;
+  top: -10vw; right: -6vw;
   background: radial-gradient(circle, var(--amber), transparent 70%);
   animation: drift-a 26s var(--ease) infinite alternate;
 }
 .blob-2 {
-  width: 38vw; height: 38vw;
-  top: 42vh; left: -12vw;
+  width: 33vw; height: 33vw;
+  top: 42vh; left: -10vw;
   background: radial-gradient(circle, var(--coral), transparent 70%);
   opacity: .34;
   animation: drift-b 32s var(--ease) infinite alternate;
 }
 .blob-3 {
-  width: 30vw; height: 30vw;
-  bottom: -8vw; right: 18vw;
+  width: 26vw; height: 26vw;
+  bottom: -6vw; right: 18vw;
   background: radial-gradient(circle, var(--mint), transparent 70%);
   opacity: .2;
   animation: drift-c 38s var(--ease) infinite alternate;
@@ -176,9 +176,16 @@ a { color: inherit; }
 :root[data-theme="dark"] .blob { opacity: .22; }
 :root[data-theme="dark"] .blob-3 { opacity: .12; }
 
-@keyframes drift-a { to { transform: translate(-6vw, 8vh) scale(1.15); } }
-@keyframes drift-b { to { transform: translate(9vw, -6vh) scale(1.2); } }
-@keyframes drift-c { to { transform: translate(-8vw, -5vh) scale(1.1); } }
+/* Pure translate (no scale) so the compositor never re-rasterises the blur */
+@keyframes drift-a { to { transform: translate(-6vw, 8vh); } }
+@keyframes drift-b { to { transform: translate(9vw, -6vh); } }
+@keyframes drift-c { to { transform: translate(-8vw, -5vh); } }
+
+/* Freeze every always-on animation when the tab is hidden or a modal covers
+   the page — invisible to the viewer, but stops needless GPU compositing. */
+.motion-paused .blob,
+.motion-paused .marquee-track,
+.motion-paused .pulse::after { animation-play-state: paused; }
 
 /* ── Header ───────────────────────────────────────────────── */
 .site-header {
