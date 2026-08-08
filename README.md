@@ -11,12 +11,32 @@ near-black, and warm newsprint. The whole look rests on two rules:
 1. **One accent, no second hue.** The orange *fill* (`#ff6f00` → `#ff9d31`) is
    byte-identical in both themes so the brand never shifts. Only orange-as-text
    darkens on paper, for contrast.
-2. **Two type registers only.** Tracked micro-caps (9–11px, weight 900,
-   1.5–2.4px letter-spacing) and heavy display (`clamp(40px, 7.2vw, 104px)`,
-   weight 900, `line-height: .86`). The gap between them *is* the design —
-   avoid inventing mid-sized type.
+2. **Two type registers, with a floor.** Tracked micro-caps for *labels* and
+   heavy display for *headlines*. The gap between them is the design — but
+   taken literally it once pushed 417 elements below 12px, so the scale now
+   has a hard floor (see below).
 
 Change `--orange` in the `:root` block of `styles.css` and the entire site follows.
+
+### Readability rules
+
+These are load-bearing. The first version of this design was stylish and hard
+to read; these three rules are what fixed it, and breaking them undoes it.
+
+1. **Nothing below 11px.** Use the scale — `--t-micro` 11 / `--t-label` 12 /
+   `--t-meta` 13 / `--t-small` 14 / `--t-body` 16 / `--t-lead` 18. Don't write
+   raw px font sizes.
+2. **Caps only for 1–3 word labels.** All-caps costs 10–20% reading speed and
+   hurts dyslexic readers most, because every word becomes a rectangle — but
+   it *helps* when you're glancing at a single word. So kickers, nav and chips
+   are caps; titles, descriptions and any sentence are sentence case. The one
+   deliberate exception is the hero display headline, which is glanceable.
+3. **Prose stays between 45 and 75 characters.** `--t-body` at the widths used
+   here means roughly `max-width: 58ch` for leads and `66ch` for body columns.
+
+Related: interactive targets are 44px (WCAG 2.2 AA only requires 24×24, so
+this is comfort, not compliance), and DOM order must match visual order —
+don't reach for CSS `order` to rearrange card contents.
 
 ### How the two themes work
 
@@ -78,14 +98,14 @@ edge can't halo inside the cover's clip.
 
 | Section | What it is |
 |---|---|
-| Route header | Tall banner — brand, nav, statement card, destination CTA, checkpoint rail. Not sticky. |
+| Route header | Tall banner — brand, nav, statement card, CTA card, and a checkpoint rail carrying availability / response time / location. Not sticky. |
 | Sticky rail | Slim bar that slides in once the banner scrolls past. Duplicates the nav, so it is `aria-hidden` with unfocusable links; the banner is the real nav. |
 | Masthead hero | Display headline, stat rail, code terminal, stack marquee |
-| The current issue | Featured Decision-Support Terminal case study as a magazine spread |
-| **The rack** | All 34 case studies as 2:3 magazine covers on CSS shelves |
+| Selected work | Featured Decision-Support Terminal case study as a magazine spread |
+| **The rack** | All 34 case studies as 2:3 covers on CSS shelves. They're *case studies*, not magazine "issues" — the metaphor is the shelf, not the content. |
 | The arcade | 5 games as cartridges on a second shelf |
-| The masthead | About copy + seven numbered skill columns |
-| Direct line | Contact |
+| About ("The Masthead") | About copy + seven numbered skill columns |
+| Contact | Four direct links, numbered |
 | Footer | Numbered 01 / 02 / 03 columns |
 
 ## How the shelf works
@@ -104,18 +124,26 @@ a per-row wrapper would break the category filter, because a filtered row can en
 up holding a single card. With per-slot segments the shelf simply re-flows.
 
 The lifting part (`.mag-lift`) is a **separate child** from the shelf pseudo-elements,
-so hovering raises the magazine without dragging the shelf with it. On hover it takes
+so hovering raises the cover without dragging the shelf with it. On hover it takes
 `z-index: 20` to clear the neighbouring slots' retaining bars.
 
-Covers are generated from each project's own data — issue number, category kicker,
-metric and title — with the screenshot ghosted behind them (see *Covers behave
+Covers are generated from each project's own data — case-study number, category
+kicker, title and metric (title leads, metric supports) — with the screenshot ghosted behind them (see *Covers behave
 differently per theme* above). The full screenshot lives in the case-study modal.
+
+## Naming
+
+Navigation and kickers use **plain words** (Work / Games / About / Contact) so the
+page can be scanned without decoding a metaphor. The magazine framing lives in the
+display headings ("The Rack", "The Arcade", "The Masthead"), the shelf itself and
+the `CASE STUDY 01` tags. Keep that split: metaphor for flavour, plain words for
+wayfinding.
 
 ## Editing the content
 
 - **Projects** — `projects.js` holds the copy; the covers in `index.html` are
   `<article class="mag-slot">` blocks. The two must stay in the same order:
-  `script.js` derives the issue number from a project's index in `projects.js`.
+  `script.js` derives the case-study number from a project's index in `projects.js`.
 - **Featured spread** — the `<article class="spread">` block in `#work`.
 - **Shelf filter counts** — hardcoded in the `.shelf-tabs` buttons; update them if
   you add or remove a project.
@@ -126,7 +154,7 @@ differently per theme* above). The full screenshot lives in the case-study modal
 
 1. Append an entry to `window.PROJECTS` in `projects.js`.
 2. Append a matching `<article class="mag-slot">` to `#rackTier`, with the next
-   issue number in `.mag-no` and `.mag-issue`.
+   number in `.mag-no` and `.mag-case`.
 3. Bump the `ALL` count and the relevant category count in `.shelf-tabs`.
 
 ## Deploy to GitHub Pages
