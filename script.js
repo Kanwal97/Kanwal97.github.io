@@ -1,5 +1,6 @@
 /* ═══════════════════════════════════════════════════════════
-   Site behaviour — theme, nav, reveals, counters, game modal
+   Site behaviour — nav, sticky rail, reveals, counters,
+   game modal, case-study modal, image lightbox, rack filter
    ═══════════════════════════════════════════════════════════ */
 
 (function () {
@@ -8,25 +9,25 @@
   const $ = (sel, ctx) => (ctx || document).querySelector(sel);
   const $$ = (sel, ctx) => Array.from((ctx || document).querySelectorAll(sel));
 
-  /* ── Theme ────────────────────────────────────────────────── */
   const root = document.documentElement;
-  const toggle = $('#themeToggle');
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  const readTheme = () => {
-    try {
-      const saved = localStorage.getItem('ks_theme');
-      if (saved === 'light' || saved === 'dark') return saved;
-    } catch (_) {}
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  };
+  /* ── Theme ────────────────────────────────────────────────────
+     The inline script in <head> has already set data-theme before paint;
+     this only wires the toggle and keeps the chrome colour in sync. */
+  const toggle = $('#themeToggle');
+  const themeMeta = $('meta[name="theme-color"]');
 
   function applyTheme(theme) {
     root.setAttribute('data-theme', theme);
     toggle.setAttribute('aria-label',
       theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+    if (themeMeta) {
+      themeMeta.setAttribute('content', theme === 'dark' ? '#030303' : '#faf8f5');
+    }
   }
 
-  applyTheme(readTheme());
+  applyTheme(root.getAttribute('data-theme') === 'light' ? 'light' : 'dark');
 
   toggle.addEventListener('click', () => {
     const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
@@ -34,54 +35,63 @@
     try { localStorage.setItem('ks_theme', next); } catch (_) {}
   });
 
-  /* Follow the OS unless the user has picked a theme here */
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+  /* Follow the OS unless the visitor has picked a theme here */
+  window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', (e) => {
     let saved = null;
     try { saved = localStorage.getItem('ks_theme'); } catch (_) {}
-    if (!saved) applyTheme(e.matches ? 'dark' : 'light');
+    if (!saved) applyTheme(e.matches ? 'light' : 'dark');
   });
 
-  /* ── Header shadow on scroll ──────────────────────────────── */
-  const header = $('#siteHeader');
-  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 8);
+  /* ── Mobile menu (banner header) ──────────────────────────── */
+  const shell = $('#routeShell');
+  const menuBtn = $('#routeMenu');
+
+  const closeMenu = () => {
+    shell.classList.remove('menu-open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+    menuBtn.setAttribute('aria-label', 'Open menu');
+  };
+
+  menuBtn.addEventListener('click', () => {
+    const open = shell.classList.toggle('menu-open');
+    menuBtn.setAttribute('aria-expanded', String(open));
+    menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  });
+
+  $$('#routeMobile a').forEach((a) => a.addEventListener('click', closeMenu));
+
+  document.addEventListener('click', (e) => {
+    if (!shell.classList.contains('menu-open')) return;
+    if (!$('#routeMobile').contains(e.target) && !menuBtn.contains(e.target)) closeMenu();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && shell.classList.contains('menu-open')) closeMenu();
+  });
+
+  /* ── Sticky rail — slides in once the banner has scrolled by ─
+     It duplicates the banner nav purely for convenience, so it stays
+     aria-hidden with unfocusable links; the banner is the real nav. */
+  const header = $('#routeHeader');
+  const rail = $('#rail');
+
+  const onScroll = () => {
+    rail.classList.toggle('on', window.scrollY > header.offsetHeight - 40);
+  };
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
 
-  /* ── Mobile nav ───────────────────────────────────────────── */
-  const navToggle = $('#navToggle');
-  const navLinks = $('#navLinks');
-
-  const closeNav = () => {
-    navLinks.classList.remove('open');
-    navToggle.setAttribute('aria-expanded', 'false');
-    navToggle.setAttribute('aria-label', 'Open menu');
-  };
-
-  navToggle.addEventListener('click', () => {
-    const open = navLinks.classList.toggle('open');
-    navToggle.setAttribute('aria-expanded', String(open));
-    navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-  });
-
-  $$('#navLinks a').forEach((a) => a.addEventListener('click', closeNav));
-
-  document.addEventListener('click', (e) => {
-    if (!navLinks.contains(e.target) && !navToggle.contains(e.target)) closeNav();
-  });
-
   /* ── Reveal on scroll ─────────────────────────────────────── */
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
   if (reduced || !('IntersectionObserver' in window)) {
     $$('.reveal').forEach((n) => n.classList.add('in'));
   } else {
     const io = new IntersectionObserver((entries) => {
       entries.forEach((entry, i) => {
         if (!entry.isIntersecting) return;
-        setTimeout(() => entry.target.classList.add('in'), i * 70);
+        setTimeout(() => entry.target.classList.add('in'), i * 60);
         io.unobserve(entry.target);
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -60px' });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px' });
 
     $$('.reveal').forEach((n) => io.observe(n));
   }
@@ -120,7 +130,7 @@
     counters.forEach(runCounter);
   }
 
-  /* ── Best-score labels on the game cards ──────────────────── */
+  /* ── Best-score labels on the cartridges ──────────────────── */
   function readBest(key) {
     try {
       const v = localStorage.getItem('ks_' + key);
@@ -133,7 +143,9 @@
     const game = window.GAMES && window.GAMES[id];
     if (!node || !game) return;
     const v = readBest(game.bestKey);
-    node.textContent = v === null || v === 0 ? 'Not played yet' : game.bestLabel(v);
+    node.textContent = v === null || v === 0
+      ? 'NOT PLAYED YET'
+      : game.bestLabel(v).toUpperCase();
   }
 
   Object.keys(window.GAMES || {}).forEach(paintBest);
@@ -217,14 +229,7 @@
 
   $$('[data-close]', modal).forEach((n) => n.addEventListener('click', closeGame));
 
-  /* Placeholder card shouldn't navigate anywhere yet */
-  $$('.game-soon').forEach((card) => {
-    card.addEventListener('click', (e) => {
-      if (card.getAttribute('href') === '#') e.preventDefault();
-    });
-  });
-
-  /* ── Project image lightbox ───────────────────────────────── */
+  /* ── Image lightbox ───────────────────────────────────────── */
   const lightbox = $('#lightbox');
   const lbImg = $('#lightboxImg');
   const lbCap = $('#lightboxCap');
@@ -247,9 +252,7 @@
     lightbox.hidden = true;
     lbImg.src = '';
     // Keep the scroll lock if a case-study modal is still open beneath
-    const caseOpen = document.getElementById('caseModal') &&
-      !document.getElementById('caseModal').hidden;
-    if (!caseOpen) document.body.style.overflow = '';
+    if (caseModal.hidden) document.body.style.overflow = '';
     document.removeEventListener('keydown', onLbKey);
     if (lbLastFocus && lbLastFocus.focus) lbLastFocus.focus();
     syncMotion();
@@ -262,7 +265,7 @@
   $$('[data-lb-close]', lightbox).forEach((n) =>
     n.addEventListener('click', closeLightbox));
 
-  /* Featured case-study poster → lightbox */
+  /* Featured spread poster → lightbox */
   const featureShot = $('#caseFeatureShot');
   if (featureShot) {
     const openFeature = () => openLightbox(
@@ -278,54 +281,64 @@
   const caseModal = $('#caseModal');
   const caseBody = $('#caseBody');
   const caseTitle = $('#caseTitle');
-  const caseBadge = $('#caseBadge');
+  const caseNo = $('#caseNo');
+
   const projects = window.PROJECTS || [];
   const byId = {};
-  projects.forEach((p) => { byId[p.id] = p; });
+  projects.forEach((p, i) => {
+    byId[p.id] = { data: p, no: String(i + 1).padStart(2, '0') };
+  });
 
   let caseLastFocus = null;
 
-  const escapeHtml = (s) => String(s)
-    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  /* Escapes quotes too — this output lands inside attributes */
+  const esc = (s) => String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
 
-  function listOrText(value, cls) {
+  function listOrText(value) {
     if (Array.isArray(value)) {
       return '<ul class="case-ul">' +
-        value.map((i) => `<li>${escapeHtml(i)}</li>`).join('') + '</ul>';
+        value.map((i) => `<li>${esc(i)}</li>`).join('') + '</ul>';
     }
-    return `<p>${escapeHtml(value)}</p>`;
+    return `<p>${esc(value)}</p>`;
   }
 
-  function renderCase(p) {
-    caseBadge.textContent = p.badge;
+  function renderCase(p, no) {
+    caseNo.textContent = 'ISSUE ' + no;
     caseTitle.textContent = p.title;
 
     caseBody.innerHTML = `
       <figure class="case-shot" id="caseShot" role="button" tabindex="0"
-              aria-label="Enlarge ${escapeHtml(p.title)} screenshot">
-        <img src="portfolio_images/${p.img}" alt="${escapeHtml(p.title)} screenshot">
+              aria-label="Enlarge the ${esc(p.title)} screenshot">
+        <img src="portfolio_images/${esc(p.img)}" alt="${esc(p.title)} screenshot">
       </figure>
-      <p class="case-summary">${escapeHtml(p.summary)}</p>
 
-      <div class="case-block challenge">
-        <h3><span class="dot" aria-hidden="true"></span>The challenge</h3>
+      <p class="case-kicker">${esc(p.badge)} · ${esc(p.metric)}</p>
+      <p class="case-summary">${esc(p.summary)}</p>
+
+      <div class="case-block">
+        <h3><span>01</span>The challenge</h3>
         ${listOrText(p.challenge)}
       </div>
-      <div class="case-block solution">
-        <h3><span class="dot" aria-hidden="true"></span>What I built</h3>
+      <div class="case-block">
+        <h3><span>02</span>What I built</h3>
         ${listOrText(p.solution)}
       </div>
-      <div class="case-block result">
-        <h3><span class="dot" aria-hidden="true"></span>The result</h3>
+      <div class="case-block">
+        <h3><span>03</span>The result</h3>
         ${listOrText(p.impact)}
       </div>
 
       <div class="case-stack">
-        <p class="skill-label">Stack</p>
-        <ul class="tags">${p.stack.map((t) => `<li>${escapeHtml(t)}</li>`).join('')}</ul>
+        <p class="label label-hot">Stack</p>
+        <ul class="tags">${p.stack.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>
       </div>`;
 
-    // Zoom the screenshot via the existing lightbox
+    // Zoom the screenshot via the shared lightbox
     const shot = $('#caseShot', caseBody);
     const openShot = () => openLightbox('portfolio_images/' + p.img, p.title);
     shot.addEventListener('click', openShot);
@@ -335,10 +348,10 @@
   }
 
   function openCase(id) {
-    const p = byId[id];
-    if (!p) return;
+    const entry = byId[id];
+    if (!entry) return;
     caseLastFocus = document.activeElement;
-    renderCase(p);
+    renderCase(entry.data, entry.no);
     caseModal.hidden = false;
     document.body.style.overflow = 'hidden';
     caseBody.scrollTop = 0;
@@ -379,35 +392,38 @@
     }
   }
 
-  $$('.gcard').forEach((card) => {
-    card.addEventListener('click', () => openCase(card.dataset.project));
+  const slots = $$('.mag-slot');
+  slots.forEach((slot) => {
+    $('.mag-lift', slot).addEventListener('click', () => openCase(slot.dataset.project));
   });
   $$('[data-case-close]', caseModal).forEach((n) =>
     n.addEventListener('click', closeCase));
 
-  /* ── Gallery category filter ──────────────────────────────── */
-  const filterBtns = $$('.filter-btn');
-  const cards = $$('.gcard');
+  /* ── Shelf filter ─────────────────────────────────────────── */
+  const tabs = $$('.tab');
+  const rackEmpty = $('#rackEmpty');
 
-  filterBtns.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const f = btn.dataset.filter;
-      filterBtns.forEach((b) => b.classList.toggle('on', b === btn));
-      cards.forEach((card) => {
-        const show = f === 'all' || card.dataset.cat === f;
-        card.classList.toggle('hide', !show);
-        // Any card that becomes visible should be revealed immediately
-        if (show) card.classList.add('in');
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const f = tab.dataset.filter;
+      tabs.forEach((t) => t.classList.toggle('on', t === tab));
+
+      let shown = 0;
+      slots.forEach((slot) => {
+        const show = f === 'all' || slot.dataset.cat === f;
+        slot.classList.toggle('hide', !show);
+        if (show) { shown++; slot.classList.add('in'); }
       });
+      rackEmpty.hidden = shown > 0;
     });
   });
 
   /* ── Footer year ──────────────────────────────────────────── */
   $('#year').textContent = new Date().getFullYear();
 
-  /* ── Pause continuous background animations when nobody's watching ──
-     Hidden tab, or any full-screen modal covering the page → freeze the
-     aurora / marquee / pulse so the GPU isn't compositing for nothing. */
+  /* ── Pause continuous animation when nobody's watching ──────
+     Hidden tab, or a full-screen dialog covering the page → freeze the
+     marquee and route flow so the GPU isn't compositing for nothing. */
   function anyModalOpen() {
     return !modal.hidden || !caseModal.hidden || !lightbox.hidden;
   }
