@@ -3,106 +3,229 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Kanwaljeet Singh — Full-Stack Laravel + Next.js Developer</title>
-<meta name="description" content="Full-Stack developer with 7+ years building scalable Laravel and Next.js applications. Clean APIs, modern interfaces, and a few games to play along the way.">
+<title>Kanwaljeet Singh — Full-Stack Laravel + Next.js Engineer</title>
+<meta name="description" content="Full-stack engineer with 7+ years building scalable Laravel and Next.js applications. 34 shipped client builds, read as issues. Clean APIs, modern interfaces, and a few games to play along the way.">
 <meta name="author" content="Kanwaljeet Singh">
+<meta name="theme-color" content="#030303">
 
+<link rel="canonical" href="https://kanwal97.github.io/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Kanwaljeet Singh — Full-Stack Developer">
-<meta property="og:description" content="7+ years building scalable Laravel and Next.js applications. Clean APIs, modern interfaces, and playable games.">
+<meta property="og:url" content="https://kanwal97.github.io/">
+<meta property="og:title" content="Kanwaljeet Singh — Full-Stack Engineer">
+<meta property="og:description" content="34 shipped client builds on the rack. 7+ years of Laravel and Next.js — clean APIs, modern interfaces, playable games.">
+<meta property="og:image" content="https://kanwal97.github.io/portfolio_images/decision_terminal.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Kanwaljeet Singh — Full-Stack Engineer">
+<meta name="twitter:description" content="34 shipped client builds on the rack. 7+ years of Laravel and Next.js.">
+<meta name="twitter:image" content="https://kanwal97.github.io/portfolio_images/decision_terminal.png">
 
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌅</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%23030303'/><text x='50' y='70' font-size='54' font-family='Arial Black,Arial' font-weight='900' text-anchor='middle' fill='%23ff6f00'>KS</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=JetBrains+Mono:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+
+<!-- Set the theme before first paint, or light-mode visitors get a black flash -->
+<script>
+(function () {
+  var t;
+  try { t = localStorage.getItem('ks_theme'); } catch (e) {}
+  if (t !== 'light' && t !== 'dark') {
+    t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  }
+  document.documentElement.setAttribute('data-theme', t);
+})();
+</script>
 </head>
 <body>
 
 <a class="skip-link" href="#main">Skip to content</a>
 
-<div class="aurora" aria-hidden="true">
-  <span class="blob blob-1"></span>
-  <span class="blob blob-2"></span>
-  <span class="blob blob-3"></span>
-</div>
+<div class="veil" aria-hidden="true"></div>
 
-<header class="site-header" id="siteHeader">
-  <nav class="nav" aria-label="Main">
-    <a class="brand" href="#top">
-      <span class="brand-mark" aria-hidden="true">KS</span>
-      <span class="brand-text">Kanwaljeet<span class="brand-dot">.</span></span>
-    </a>
+<!-- ───────────────────── ROUTE HEADER (banner) ───────────────────── -->
+<header class="route" id="routeHeader">
+  <div class="route-strip">
+    <p class="route-strip-inner">
+      <span>LARAVEL</span><i></i><span>NEXT.JS</span><i></i><span>POSTGRESQL</span><i></i><span>AI INTEGRATION</span>
+    </p>
+  </div>
 
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#work">Work</a></li>
-      <li><a href="#games">Games</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+  <div class="route-shell" id="routeShell">
+    <svg class="route-map" viewBox="0 0 1400 200" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+      <defs>
+        <linearGradient id="routeSoft" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#ff6f00" stop-opacity=".05"/>
+          <stop offset=".5" stop-color="#ff6f00" stop-opacity=".3"/>
+          <stop offset="1" stop-color="#ff6f00" stop-opacity=".05"/>
+        </linearGradient>
+        <linearGradient id="routeGlow" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#ff6f00" stop-opacity=".1"/>
+          <stop offset=".55" stop-color="#ff9d31" stop-opacity=".9"/>
+          <stop offset="1" stop-color="#ff6f00" stop-opacity=".1"/>
+        </linearGradient>
+      </defs>
+      <path class="route-line route-line-soft" d="M-20 150 C 220 150, 300 40, 560 40 S 900 170, 1180 120 1420 60"/>
+      <path class="route-line route-line-ghost" d="M-20 90 C 260 90, 420 180, 700 170 S 1100 40, 1420 100"/>
+      <path class="route-line route-line-live" d="M-20 150 C 220 150, 300 40, 560 40 S 900 170, 1180 120 1420 60"/>
+      <circle class="route-node" cx="560" cy="40" r="5"/>
+      <circle class="route-node route-node-live" cx="1180" cy="120" r="5"/>
+    </svg>
 
-    <div class="nav-actions">
-      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark theme">
-        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8"/></svg>
-        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"/></svg>
-      </button>
-      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
+    <div class="route-grid">
+      <a class="brand" href="#top">
+        <span class="brand-mark" aria-hidden="true">KS</span>
+        <span class="brand-copy">
+          <strong>KANWALJEET <em>SINGH</em></strong>
+          <span class="brand-title">FULL-STACK ENGINEER · LARAVEL + NEXT.JS</span>
+          <span class="brand-status"><i aria-hidden="true"></i>AVAILABLE FOR NEW WORK</span>
+          <small>Seven years turning briefs into products that survive real users, real money and real edge cases.</small>
+        </span>
+      </a>
+
+      <div class="route-centre">
+        <nav class="route-nav" aria-label="Main">
+          <a href="#work">THE RACK</a>
+          <a href="#games">THE ARCADE</a>
+          <a href="#about">MASTHEAD</a>
+          <a href="#contact">DIRECT LINE</a>
+        </nav>
+
+        <div class="statement">
+          <p class="kicker"><i aria-hidden="true"></i><span>NOW SHIPPING</span></p>
+          <strong>34 ISSUES. ONE ENGINEER.</strong>
+          <p>Every issue on the rack is a real client build — e-commerce, SaaS, fintech, real estate, food delivery and AI. Pull one off the shelf and read what it actually took.</p>
+        </div>
+      </div>
+
+      <a class="destination" href="#contact">
+        <span class="destination-head">
+          <span>
+            <small>NEXT DESTINATION</small>
+            <strong>YOUR BUILD</strong>
+          </span>
+          <span class="pin" aria-hidden="true"><i></i></span>
+        </span>
+        <p>Bring the brief. I'll bring the schema, the API and the interface.</p>
+        <span class="destination-pills">
+          <span>LARAVEL</span><span>NEXT.JS</span><span>REACT</span><span>AI</span>
+        </span>
+        <span class="destination-cta">START THE CONVERSATION <b aria-hidden="true">→</b></span>
+      </a>
+
+      <div class="route-controls">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"/></svg>
+        </button>
+        <button class="route-menu" id="routeMenu" type="button" aria-expanded="false" aria-controls="routeMobile" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
-  </nav>
+
+    <div class="checkpoints">
+      <span class="checkpoint-line" aria-hidden="true"></span>
+      <div class="checkpoint checkpoint-on">
+        <b aria-hidden="true"></b>
+        <span><small>EXPERIENCE</small><span>7+ YEARS SHIPPING</span></span>
+      </div>
+      <div class="checkpoint checkpoint-on">
+        <b aria-hidden="true"></b>
+        <span><small>ON THE RACK</small><span>34 CLIENT BUILDS</span></span>
+      </div>
+      <div class="checkpoint checkpoint-on">
+        <b aria-hidden="true"></b>
+        <span><small>PEAK LOAD</small><span>40K+ USERS SCALED</span></span>
+      </div>
+    </div>
+
+    <div class="route-mobile" id="routeMobile">
+      <div class="route-mobile-panel">
+        <div class="route-mobile-head">
+          <small>THE ROUTE</small>
+          <strong>WHERE DO YOU<br>WANT TO GO?</strong>
+        </div>
+        <nav class="route-mobile-nav" aria-label="Mobile">
+          <a href="#work"><span>THE RACK</span><b aria-hidden="true">→</b></a>
+          <a href="#games"><span>THE ARCADE</span><b aria-hidden="true">→</b></a>
+          <a href="#about"><span>MASTHEAD</span><b aria-hidden="true">→</b></a>
+          <a href="#contact"><span>DIRECT LINE</span><b aria-hidden="true">→</b></a>
+        </nav>
+        <a class="route-mobile-cta" href="#contact">
+          <span><small>READY TO TALK?</small>START A BUILD</span>
+          <b aria-hidden="true">→</b>
+        </a>
+      </div>
+    </div>
+  </div>
 </header>
+
+<!-- ───────────────────── STICKY RAIL ───────────────────── -->
+<div class="rail" id="rail" aria-hidden="true">
+  <div class="rail-inner">
+    <a class="rail-brand" href="#top" tabindex="-1"><span>KS</span>KANWALJEET <em>SINGH</em></a>
+    <nav class="rail-nav">
+      <a href="#work" tabindex="-1">RACK</a>
+      <a href="#games" tabindex="-1">ARCADE</a>
+      <a href="#about" tabindex="-1">MASTHEAD</a>
+    </nav>
+    <a class="rail-cta" href="#contact" tabindex="-1">HIRE ME <b aria-hidden="true">→</b></a>
+  </div>
+</div>
 
 <main id="main">
 <span id="top"></span>
 
-<!-- ───────────────────────── HERO ───────────────────────── -->
+<!-- ───────────────────── MASTHEAD HERO ───────────────────── -->
 <section class="hero">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <p class="eyebrow reveal">
-        <span class="pulse" aria-hidden="true"></span>
-        Available for new work
-      </p>
+      <p class="kicker reveal"><i aria-hidden="true"></i><span>ISSUE 00 · THE MASTHEAD</span></p>
 
-      <h1 class="hero-title reveal">
-        Hi, I'm Kanwaljeet.<br>
-        I turn ideas into
-        <span class="grad">software people love</span>
+      <h1 class="display reveal">
+        I TURN IDEAS INTO<br>
+        <span>SOFTWARE</span><br>
+        PEOPLE LOVE
       </h1>
 
       <p class="hero-sub reveal">
-        Full-stack developer with <strong>7+ years</strong> shipping scalable products —
-        e-commerce, SaaS, fintech, real estate, food delivery and <strong>AI-powered</strong> apps.
-        I write clean APIs in <strong>Laravel</strong> and build modern interfaces in
-        <strong>Next.js</strong>, React and Angular.
+        Full-stack engineer with <b>7+ years</b> shipping scalable products. I write clean APIs in
+        <b>Laravel</b> and build modern interfaces in <b>Next.js</b>, React and Angular — then stay
+        long enough to watch them survive their second year.
       </p>
 
       <div class="hero-cta reveal">
-        <a class="btn btn-primary" href="#work">
-          View my work
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-        <a class="btn btn-ghost" href="#games">
-          Play a game
-          <span class="btn-emoji" aria-hidden="true">🎮</span>
-        </a>
+        <a class="btn btn-solid" href="#work">READ THE RACK <b aria-hidden="true">→</b></a>
+        <a class="btn btn-line" href="#games">PLAY SOMETHING <b aria-hidden="true">↗</b></a>
       </div>
 
-      <ul class="hero-stats reveal">
-        <li><b data-count="7">0</b><span>Years building</span></li>
-        <li><b data-count="40" data-suffix="k+">0</b><span>Users scaled to</span></li>
-        <li><b data-count="30" data-suffix="+">0</b><span>Projects shipped</span></li>
+      <ul class="stat-rail reveal">
+        <li>
+          <small>01</small>
+          <b data-count="7">0</b>
+          <span>YEARS BUILDING</span>
+        </li>
+        <li>
+          <small>02</small>
+          <b data-count="40" data-suffix="K+">0</b>
+          <span>USERS SCALED TO</span>
+        </li>
+        <li>
+          <small>03</small>
+          <b data-count="34" data-suffix="">0</b>
+          <span>ISSUES ON THE RACK</span>
+        </li>
       </ul>
     </div>
 
     <div class="hero-visual reveal" aria-hidden="true">
-      <div class="code-card">
-        <div class="code-bar">
+      <div class="terminal">
+        <div class="terminal-bar">
           <i></i><i></i><i></i>
           <span>developer.php</span>
         </div>
-<pre class="code"><code><span class="c-key">class</span> <span class="c-cls">Kanwaljeet</span> <span class="c-key">extends</span> <span class="c-cls">Developer</span>
+<pre class="terminal-code"><code><span class="c-key">class</span> <span class="c-cls">Kanwaljeet</span> <span class="c-key">extends</span> <span class="c-cls">Developer</span>
 {
     <span class="c-key">public function</span> <span class="c-fn">stack</span>(): <span class="c-cls">array</span>
     {
@@ -124,85 +247,84 @@
 
   <div class="marquee" aria-hidden="true">
     <div class="marquee-track">
-      <span>Laravel</span><span>•</span><span>Next.js</span><span>•</span><span>PHP</span><span>•</span>
-      <span>React</span><span>•</span><span>TypeScript</span><span>•</span><span>MySQL</span><span>•</span>
-      <span>REST APIs</span><span>•</span><span>Tailwind</span><span>•</span><span>Node.js</span><span>•</span>
-      <span>Docker</span><span>•</span><span>Vue</span><span>•</span><span>Livewire</span><span>•</span>
-      <span>Laravel</span><span>•</span><span>Next.js</span><span>•</span><span>PHP</span><span>•</span>
-      <span>React</span><span>•</span><span>TypeScript</span><span>•</span><span>MySQL</span><span>•</span>
-      <span>REST APIs</span><span>•</span><span>Tailwind</span><span>•</span><span>Node.js</span><span>•</span>
-      <span>Docker</span><span>•</span><span>Vue</span><span>•</span><span>Livewire</span><span>•</span>
+      <span>LARAVEL</span><i></i><span>NEXT.JS</span><i></i><span>PHP</span><i></i>
+      <span>REACT</span><i></i><span>TYPESCRIPT</span><i></i><span>MYSQL</span><i></i>
+      <span>REST APIS</span><i></i><span>TAILWIND</span><i></i><span>NODE.JS</span><i></i>
+      <span>DOCKER</span><i></i><span>VUE</span><i></i><span>LIVEWIRE</span><i></i>
+      <span>LARAVEL</span><i></i><span>NEXT.JS</span><i></i><span>PHP</span><i></i>
+      <span>REACT</span><i></i><span>TYPESCRIPT</span><i></i><span>MYSQL</span><i></i>
+      <span>REST APIS</span><i></i><span>TAILWIND</span><i></i><span>NODE.JS</span><i></i>
+      <span>DOCKER</span><i></i><span>VUE</span><i></i><span>LIVEWIRE</span><i></i>
     </div>
   </div>
 </section>
 
-<!-- ───────────────────────── WORK ───────────────────────── -->
+<!-- ───────────────────── CURRENT ISSUE ───────────────────── -->
 <section id="work" class="section">
   <div class="wrap">
     <header class="section-head reveal">
-      <p class="section-tag">Selected work</p>
-      <h2 class="section-title">Work I've shipped</h2>
-      <p class="section-lead">
-        Client products built to survive contact with real users, real money and real
-        edge cases. Here's the most recent one in full, and the ground I've covered before it.
+      <p class="kicker"><i aria-hidden="true"></i><span>THE CURRENT ISSUE</span></p>
+      <h2 class="display display-2">DELIVERED IN<br><span>THREE WEEKS</span></h2>
+      <p class="lead">
+        Client products built to survive contact with real users, real money and real edge cases.
+        Here's the most recent one in full — then the whole rack.
       </p>
     </header>
 
-    <!-- Featured case study -->
-    <article class="case reveal">
-      <div class="case-glow" aria-hidden="true"></div>
+    <article class="spread reveal">
+      <div class="spread-glow" aria-hidden="true"></div>
 
-      <div class="case-head">
-        <div class="case-intro">
-          <span class="badge badge-live">Featured case study</span>
-          <h3 class="case-title">Decision-Support Terminal</h3>
-          <p class="case-tagline">Two surfaces. One data floor.</p>
-          <p class="case-kicker">
-            A full-stack decision-support terminal delivered in <strong>three build weeks</strong> —
+      <div class="spread-head">
+        <div class="spread-intro">
+          <p class="kicker"><i aria-hidden="true"></i><span>FEATURED CASE STUDY</span></p>
+          <h3 class="spread-title">DECISION-SUPPORT<br>TERMINAL</h3>
+          <p class="spread-tagline">TWO SURFACES. ONE DATA FLOOR.</p>
+          <p class="spread-kicker">
+            A full-stack decision-support terminal delivered in <b>three build weeks</b> —
             kickoff to end-user feed live.
           </p>
         </div>
 
-        <div class="case-vitals">
-          <p class="skill-label">Delivery vitals</p>
+        <div class="spread-vitals">
+          <p class="label">DELIVERY VITALS</p>
           <div class="vital-grid">
             <div class="vital">
-              <b>21</b><span>days</span>
+              <b>21</b><span>DAYS</span>
               <small>Kickoff → end-user feed live</small>
             </div>
             <div class="vital">
-              <b>5</b><span>merged PRs</span>
+              <b>5</b><span>MERGED PRS</span>
               <small>Trunk-based · reviewed slices</small>
             </div>
             <div class="vital">
-              <b>6</b><span>screens</span>
+              <b>6</b><span>SCREENS</span>
               <small>Five internal · one external</small>
             </div>
             <div class="vital">
-              <b>4</b><span>integrations</span>
+              <b>4</b><span>INTEGRATIONS</span>
               <small>API · scraper · LLM · webhook</small>
             </div>
           </div>
         </div>
       </div>
 
-      <figure class="case-figure" id="caseFeatureShot" role="button" tabindex="0"
+      <figure class="spread-figure" id="caseFeatureShot" role="button" tabindex="0"
               aria-label="Enlarge the Decision-Support Terminal solution summary">
         <img src="portfolio_images/decision_terminal.png"
              alt="Decision-Support Terminal solution summary — the brief, delivery vitals and capabilities delivered"
              loading="lazy" decoding="async">
         <figcaption>
-          <span>Solution summary</span>
-          <span class="case-figure-zoom" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg>
-            Click to enlarge
+          <span>SOLUTION SUMMARY</span>
+          <span class="spread-zoom">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg>
+            CLICK TO ENLARGE
           </span>
         </figcaption>
       </figure>
 
-      <div class="case-body">
-        <div class="case-col">
-          <h4 class="case-h4">The problem</h4>
+      <div class="spread-body">
+        <div class="spread-col">
+          <h4 class="label label-hot">THE PROBLEM</h4>
           <p>
             The client needed a system that could ingest live and historical listings from a
             large third-party marketplace, identify each against a controlled catalogue, and
@@ -213,16 +335,16 @@
             tuning the machine, and an external end-user surface for reading its output.
           </p>
 
-          <h4 class="case-h4">How it was built</h4>
+          <h4 class="label label-hot">HOW IT WAS BUILT</h4>
           <p>
             Delivered as small, reviewed pull-request slices with a pre-commit health check
             running formatting, tests, and level-8 static analysis on every change.
           </p>
         </div>
 
-        <div class="case-col">
-          <h4 class="case-h4">Delivered</h4>
-          <ul class="case-list">
+        <div class="spread-col">
+          <h4 class="label label-hot">DELIVERED</h4>
+          <ul class="spread-list">
             <li>
               <b>Six production screens</b> — decision audit, review queue, classifier versions,
               operator home, catalogue viewer, opportunities feed.
@@ -250,8 +372,8 @@
         </div>
       </div>
 
-      <div class="case-stack">
-        <p class="skill-label">Stack</p>
+      <div class="spread-stack">
+        <p class="label">STACK</p>
         <ul class="tags">
           <li>Laravel 13</li><li>PHP 8.4 strict types</li><li>Inertia 2</li><li>Vue 3</li>
           <li>TypeScript strict</li><li>Tailwind v4</li><li>shadcn-vue</li>
@@ -260,899 +382,854 @@
         </ul>
       </div>
     </article>
-
-    <!-- Real project gallery -->
-    <h3 class="sub-head reveal">Case studies</h3>
-    <p class="sub-lead reveal">
-      <strong>34 projects</strong> across AI, backend, full-stack, frontend, mobile and e-commerce.
-      Filter by type, then tap any card to read the challenge I was handed, what I built, and the result.
-    </p>
-
-    <div class="gallery-filter reveal" role="group" aria-label="Filter projects by type">
-      <button class="filter-btn on" data-filter="all" type="button">All <span class="filter-n">34</span></button>
-      <button class="filter-btn" data-filter="AI" type="button">AI <span class="filter-n">3</span></button>
-      <button class="filter-btn" data-filter="Backend" type="button">Backend <span class="filter-n">11</span></button>
-      <button class="filter-btn" data-filter="Full-stack" type="button">Full-stack <span class="filter-n">11</span></button>
-      <button class="filter-btn" data-filter="Frontend" type="button">Frontend <span class="filter-n">4</span></button>
-      <button class="filter-btn" data-filter="Mobile" type="button">Mobile <span class="filter-n">1</span></button>
-      <button class="filter-btn" data-filter="E-commerce" type="button">E-commerce <span class="filter-n">4</span></button>
-    </div>
-
-    <div class="gallery">
-
-      <article class="gcard reveal" data-project="ai-dish" data-cat="AI">
-        <div class="gcard-media">
-          <img src="portfolio_images/case_study_28.png" alt="AI Restaurant &amp; Dish Search screenshot" loading="lazy" decoding="async">
-          <span class="gcard-badge">AI · Backend</span>
-        </div>
-        <div class="gcard-body">
-          <div class="gcard-head">
-            <h4>AI Restaurant &amp; Dish Search</h4>
-            <span class="gcard-metric">Semantic vector search</span>
-          </div>
-          <p>An AI-powered restaurant discovery platform that understands intent, not just keywords — built on PostgreSQL vector search.</p>
-          <ul class="tags"><li>Laravel</li><li>OpenAI API</li><li>PostgreSQL</li><li>Vector search</li><li>Filament</li></ul>
-          <button class="gcard-cta" type="button" aria-label="Read the AI Restaurant &amp; Dish Search case study">
-            Read case study
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-        </div>
-      </article>
-
-      <article class="gcard reveal" data-project="llm-eval" data-cat="AI">
-        <div class="gcard-media">
-          <img src="portfolio_images/case_study_21.png" alt="AI LLM Evaluation Platform screenshot" loading="lazy" decoding="async">
-          <span class="gcard-badge">AI · Frontend</span>
-        </div>
-        <div class="gcard-body">
-          <div class="gcard-head">
-            <h4>AI LLM Evaluation Platform</h4>
-            <span class="gcard-metric">50–60 E2E tests</span>
-          </div>
-          <p>Frontend for an AI platform where users evaluate prompts and compare model outputs — hardened with heavy end-to-end testing.</p>
-          <ul class="tags"><li>Next.js</li><li>React</li><li>Playwright</li><li>REST API</li></ul>
-          <button class="gcard-cta" type="button" aria-label="Read the AI LLM Evaluation Platform case study">
-            Read case study
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-        </div>
-      </article>
-
-      <article class="gcard reveal" data-project="fitness" data-cat="Backend">
-        <div class="gcard-media">
-          <img src="portfolio_images/case_study_10.png" alt="Health &amp; Fitness Platform screenshot" loading="lazy" decoding="async">
-          <span class="gcard-badge">Fitness · Backend</span>
-        </div>
-        <div class="gcard-body">
-          <div class="gcard-head">
-            <h4>Health &amp; Fitness Platform</h4>
-            <span class="gcard-metric">Scaled to 40k+ users</span>
-          </div>
-          <p>Backend architecture for a fitness platform that grew from 20k to 40k+ active users — and kept working as the load climbed.</p>
-          <ul class="tags"><li>Laravel</li><li>MySQL</li><li>AWS</li><li>REST APIs</li></ul>
-          <button class="gcard-cta" type="button" aria-label="Read the Health &amp; Fitness Platform case study">
-            Read case study
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-        </div>
-      </article>
-
-      <article class="gcard reveal" data-project="betting" data-cat="Backend">
-        <div class="gcard-media">
-          <img src="portfolio_images/case_study_29.png" alt="Real-Time Sports Betting API screenshot" loading="lazy" decoding="async">
-          <span class="gcard-badge">Fintech · Realtime</span>
-        </div>
-        <div class="gcard-body">
-          <div class="gcard-head">
-            <h4>Real-Time Sports Betting API</h4>
-            <span class="gcard-metric">Live odds every 30s</span>
-          </div>
-          <p>Replaced a USA betting platform’s legacy data provider with a real-time integration refreshing live odds every 30 seconds.</p>
-          <ul class="tags"><li>Core PHP</li><li>REST API</li><li>Caching</li><li>MySQL</li></ul>
-          <button class="gcard-cta" type="button" aria-label="Read the Real-Time Sports Betting API case study">
-            Read case study
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-        </div>
-      </article>
-
-      <article class="gcard reveal" data-project="event-vendor" data-cat="Backend">
-        <div class="gcard-media">
-          <img src="portfolio_images/case_study_24.png" alt="Event Vendor Marketplace screenshot" loading="lazy" decoding="async">
-          <span class="gcard-badge">Startup MVP · NestJS</span>
-        </div>
-        <div class="gcard-body">
-          <div class="gcard-head">
-            <h4>Event Vendor Marketplace</h4>
-            <span class="gcard-metric">MVP backend on AWS</span>
-          </div>
-          <p>A scalable MVP backend for an event-vendor marketplace, owning everything from architecture to AWS deployment.</p>
-          <ul class="tags"><li>NestJS</li><li>Node.js</li><li>MongoDB</li><li>TypeScript</li></ul>
-          <button class="gcard-cta" type="button" aria-label="Read the Event Vendor Marketplace case study">
-            Read case study
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-        </div>
-      </article>
-
-      <article class="gcard reveal" data-project="medusa-search" data-cat="Backend">
-        <div class="gcard-media">
-          <img src="portfolio_images/case_study_27.png" alt="Medusa Advanced Search screenshot" loading="lazy" decoding="async">
-          <span class="gcard-badge">E-commerce · Search</span>
-        </div>
-        <div class="gcard-body">
-          <div class="gcard-head">
-            <h4>Medusa Advanced Search</h4>
-            <span class="gcard-metric">Typo-tolerant fuzzy search</span>
-          </div>
-          <p>A fuzzy, typo-tolerant search system for a Medusa commerce platform, built with MiniSearch.</p>
-          <ul class="tags"><li>Next.js</li><li>Node.js</li><li>PostgreSQL</li><li>MiniSearch</li></ul>
-          <button class="gcard-cta" type="button" aria-label="Read the Medusa Advanced Search case study">
-            Read case study
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-        </div>
-      </article>
-
-      <article class="gcard reveal" data-project="social" data-cat="Backend">
-        <div class="gcard-media">
-          <img src="portfolio_images/case_study_6.png" alt="Social Engagement Platform screenshot" loading="lazy" decoding="async">
-          <span class="gcard-badge">Social · Backend</span>
-        </div>
-        <div class="gcard-body">
-          <div class="gcard-head">
-            <h4>Social Engagement Platform</h4>
-            <span class="gcard-metric">Realtime chat + subscriptions</span>
-          </div>
-          <p>The complete backend for a martial-arts community — from auth and media to realtime chat and paid subscriptions.</p>
-          <ul class="tags"><li>Laravel</li><li>Socket.IO</li><li>PayPal</li><li>AWS</li><li>MySQL</li></ul>
-          <button class="gcard-cta" type="button" aria-label="Read the Social Engagement Platform case study">
-            Read case study
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-        </div>
-      </article>
-
-      <article class="gcard reveal" data-project="petcare" data-cat="Full-stack">
-        <div class="gcard-media">
-          <img src="portfolio_images/case_study_22.png" alt="Pet Care Platform screenshot" loading="lazy" decoding="async">
-          <span class="gcard-badge">Full-stack · Rescue</span>
-        </div>
-        <div class="gcard-body">
-          <div class="gcard-head">
-            <h4>Pet Care Platform</h4>
-            <span class="gcard-metric">Stabilised + DoS mitigated</span>
-          </div>
-          <p>Stabilised a broken pet-care platform — vet consults, adoption, appointments, chat, video calls, payments — and defended it from an attack.</p>
-          <ul class="tags"><li>Laravel</li><li>React</li><li>JavaScript</li></ul>
-          <button class="gcard-cta" type="button" aria-label="Read the Pet Care Platform case study">
-            Read case study
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-        </div>
-      </article>
-
-      <article class="gcard reveal" data-project="payments" data-cat="Backend">
-        <div class="gcard-media">
-          <img src="portfolio_images/case_study_23.png" alt="Multi-Gateway Payment System screenshot" loading="lazy" decoding="async">
-          <span class="gcard-badge">Payments · Architecture</span>
-        </div>
-        <div class="gcard-body">
-          <div class="gcard-head">
-            <h4>Multi-Gateway Payment System</h4>
-            <span class="gcard-metric">No single point of failure</span>
-          </div>
-          <p>Re-architected an e-commerce checkout from one hardcoded gateway into a flexible multi-gateway system with Razorpay.</p>
-          <ul class="tags"><li>Laravel</li><li>React</li><li>Razorpay</li><li>Payment gateways</li></ul>
-          <button class="gcard-cta" type="button" aria-label="Read the Multi-Gateway Payment System case study">
-            Read case study
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-        </div>
-      </article>
-
-      <article class="gcard reveal" data-project="fooddelivery" data-cat="Full-stack">
-        <div class="gcard-media">
-          <img src="portfolio_images/case_study_16.png" alt="Real-Time Food Delivery Platform screenshot" loading="lazy" decoding="async">
-          <span class="gcard-badge">Food delivery · Realtime</span>
-        </div>
-        <div class="gcard-body">
-          <div class="gcard-head">
-            <h4>Real-Time Food Delivery Platform</h4>
-            <span class="gcard-metric">Made production-ready</span>
-          </div>
-          <p>Stabilised and grew a real-time food-delivery platform spanning user, restaurant and driver apps on iOS, Android and web.</p>
-          <ul class="tags"><li>Laravel</li><li>REST API</li><li>MySQL</li><li>iOS/Android</li></ul>
-          <button class="gcard-cta" type="button" aria-label="Read the Real-Time Food Delivery Platform case study">
-            Read case study
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-        </div>
-      </article>
-
-      <article class="gcard reveal" data-project="trading" data-cat="Full-stack">
-        <div class="gcard-media">
-          <img src="portfolio_images/trading_simulator.jpg" alt="Trading Simulator screenshot" loading="lazy" decoding="async">
-          <span class="gcard-badge">Fintech · Realtime</span>
-        </div>
-        <div class="gcard-body">
-          <div class="gcard-head">
-            <h4>Trading Simulator</h4>
-            <span class="gcard-metric">Live market, zero risk</span>
-          </div>
-          <p>A real-time trading simulator that lets people practice against live market behaviour without risking a cent.</p>
-          <ul class="tags"><li>Node.js</li><li>MongoDB</li><li>WebSockets</li><li>Chart.js</li></ul>
-          <button class="gcard-cta" type="button" aria-label="Read the Trading Simulator case study">
-            Read case study
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-        </div>
-      </article>
-
-      <article class="gcard reveal" data-project="workforce" data-cat="Mobile">
-        <div class="gcard-media">
-          <img src="portfolio_images/case_study_19.png" alt="Workforce Hiring Platform screenshot" loading="lazy" decoding="async">
-          <span class="gcard-badge">Mobile · Flutter</span>
-        </div>
-        <div class="gcard-body">
-          <div class="gcard-head">
-            <h4>Workforce Hiring Platform</h4>
-            <span class="gcard-metric">Pivoted Ionic → Flutter</span>
-          </div>
-          <p>A mobile marketplace connecting skilled workers with employers — built from scratch, then re-architected mid-project.</p>
-          <ul class="tags"><li>Flutter</li><li>Firebase</li><li>Ionic</li><li>Firestore</li></ul>
-          <button class="gcard-cta" type="button" aria-label="Read the Workforce Hiring Platform case study">
-            Read case study
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-        </div>
-      </article>
-
-      <article class="gcard reveal" data-project="salon" data-cat="Backend">
-        <div class="gcard-media">
-          <img src="portfolio_images/case_study_2.jpg" alt="Salon Management Platform screenshot" loading="lazy" decoding="async">
-          <span class="gcard-badge">SaaS · Multi-tenant</span>
-        </div>
-        <div class="gcard-body">
-          <div class="gcard-head">
-            <h4>Salon Management Platform</h4>
-            <span class="gcard-metric">Zero-loss data migration</span>
-          </div>
-          <p>A SaaS multi-tenant platform for US salons, including a hardware bridge for tanning beds.</p>
-          <ul class="tags"><li>Core PHP</li><li>MySQL</li><li>JavaScript</li></ul>
-          <button class="gcard-cta" type="button" aria-label="Read the Salon Management Platform case study">
-            Read case study
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-        </div>
-      </article>
-
-      <article class="gcard reveal" data-project="wahe" data-cat="E-commerce">
-        <div class="gcard-media">
-          <img src="portfolio_images/case_study_18_1.png" alt="Wahe Furniture — SaaS Commerce screenshot" loading="lazy" decoding="async">
-          <span class="gcard-badge">E-commerce · SaaS</span>
-        </div>
-        <div class="gcard-body">
-          <div class="gcard-head">
-            <h4>Wahe Furniture — SaaS Commerce</h4>
-            <span class="gcard-metric">Enterprise-ready store</span>
-          </div>
-          <p>A scalable SaaS e-commerce platform for furniture businesses, powered by Aimeos with a full admin CMS.</p>
-          <ul class="tags"><li>Laravel</li><li>Aimeos</li><li>MySQL</li><li>JavaScript</li></ul>
-          <button class="gcard-cta" type="button" aria-label="Read the Wahe Furniture — SaaS Commerce case study">
-            Read case study
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-        </div>
-      </article>
-
-      <article class="gcard reveal" data-project="shopping" data-cat="E-commerce">
-        <div class="gcard-media">
-          <img src="portfolio_images/Shopping_market.png" alt="Shopping Market screenshot" loading="lazy" decoding="async">
-          <span class="gcard-badge">E-commerce</span>
-        </div>
-        <div class="gcard-body">
-          <div class="gcard-head">
-            <h4>Shopping Market</h4>
-            <span class="gcard-metric">Full storefront + admin</span>
-          </div>
-          <p>A complete, globally-ready e-commerce platform the client can run entirely on their own.</p>
-          <ul class="tags"><li>Laravel</li><li>Stripe</li><li>PayPal</li><li>MySQL</li></ul>
-          <button class="gcard-cta" type="button" aria-label="Read the Shopping Market case study">
-            Read case study
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-        </div>
-      </article>
-
-      <article class="gcard reveal" data-project="ecom" data-cat="E-commerce">
-        <div class="gcard-media">
-          <img src="portfolio_images/e-commerce_store.png" alt="E-commerce Store screenshot" loading="lazy" decoding="async">
-          <span class="gcard-badge">E-commerce</span>
-        </div>
-        <div class="gcard-body">
-          <div class="gcard-head">
-            <h4>E-commerce Store</h4>
-            <span class="gcard-metric">+30% sales</span>
-          </div>
-          <p>A high-performance store built for conversion — custom cart, reliable checkout, fast pages.</p>
-          <ul class="tags"><li>Laravel</li><li>Stripe</li><li>PayPal</li><li>SEO</li></ul>
-          <button class="gcard-cta" type="button" aria-label="Read the E-commerce Store case study">
-            Read case study
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-        </div>
-      </article>
-
-      <article class="gcard reveal" data-project="classifieds" data-cat="Full-stack">
-        <div class="gcard-media">
-          <img src="portfolio_images/case_study_7.png" alt="Free Classifieds Platform screenshot" loading="lazy" decoding="async">
-          <span class="gcard-badge">Marketplace · Rescue</span>
-        </div>
-        <div class="gcard-body">
-          <div class="gcard-head">
-            <h4>Free Classifieds Platform</h4>
-            <span class="gcard-metric">Rescued to production-ready</span>
-          </div>
-          <p>Took over an unstable classifieds platform from another team and turned it into a reliable marketplace.</p>
-          <ul class="tags"><li>Laravel</li><li>React</li><li>REST API</li><li>MySQL</li></ul>
-          <button class="gcard-cta" type="button" aria-label="Read the Free Classifieds Platform case study">
-            Read case study
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-        </div>
-      </article>
-
-      <article class="gcard reveal" data-project="dating" data-cat="Backend">
-        <div class="gcard-media">
-          <img src="portfolio_images/case_study_8.png" alt="Dating Platform Optimisation screenshot" loading="lazy" decoding="async">
-          <span class="gcard-badge">Performance</span>
-        </div>
-        <div class="gcard-body">
-          <div class="gcard-head">
-            <h4>Dating Platform Optimisation</h4>
-            <span class="gcard-metric">Much faster API</span>
-          </div>
-          <p>Performance work on a dating app with swipe, match-making and subscriptions — the home feed was crawling.</p>
-          <ul class="tags"><li>Laravel</li><li>MySQL</li><li>REST API</li></ul>
-          <button class="gcard-cta" type="button" aria-label="Read the Dating Platform Optimisation case study">
-            Read case study
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-        </div>
-      </article>
-
-      <article class="gcard reveal" data-project="sandwich" data-cat="Backend">
-        <div class="gcard-media">
-          <img src="portfolio_images/case_study_9.png" alt="Custom Sandwich Platform screenshot" loading="lazy" decoding="async">
-          <span class="gcard-badge">Optimisation · Realtime</span>
-        </div>
-        <div class="gcard-body">
-          <div class="gcard-head">
-            <h4>Custom Sandwich Platform</h4>
-            <span class="gcard-metric">N+1 killed, live orders</span>
-          </div>
-          <p>Optimised and stabilised a build-your-own sandwich ordering platform that buckled under new orders.</p>
-          <ul class="tags"><li>Laravel</li><li>WebSockets</li><li>MySQL</li></ul>
-          <button class="gcard-cta" type="button" aria-label="Read the Custom Sandwich Platform case study">
-            Read case study
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-        </div>
-      </article>
-
-      <article class="gcard reveal" data-project="jobportal" data-cat="Full-stack">
-        <div class="gcard-media">
-          <img src="portfolio_images/case_study_4.png" alt="Job Portal Platform screenshot" loading="lazy" decoding="async">
-          <span class="gcard-badge">Full-stack</span>
-        </div>
-        <div class="gcard-body">
-          <div class="gcard-head">
-            <h4>Job Portal Platform</h4>
-            <span class="gcard-metric">Built from scratch</span>
-          </div>
-          <p>A Laravel job portal for teachers and office staff, built end-to-end and hardened through real use.</p>
-          <ul class="tags"><li>Laravel</li><li>MySQL</li><li>JavaScript</li><li>jQuery</li></ul>
-          <button class="gcard-cta" type="button" aria-label="Read the Job Portal Platform case study">
-            Read case study
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-        </div>
-      </article>
-
-      <article class="gcard reveal" data-project="florist" data-cat="Frontend">
-        <div class="gcard-media">
-          <img src="portfolio_images/case_study_3.png" alt="Florist Management System screenshot" loading="lazy" decoding="async">
-          <span class="gcard-badge">Frontend · Angular</span>
-        </div>
-        <div class="gcard-body">
-          <div class="gcard-head">
-            <h4>Florist Management System</h4>
-            <span class="gcard-metric">CRM · accounting · reporting</span>
-          </div>
-          <p>The Angular frontend of a feature-rich florist ERP, with a demanding real-time data table at its core.</p>
-          <ul class="tags"><li>Angular</li><li>TypeScript</li><li>Material UI</li><li>RxJS</li></ul>
-          <button class="gcard-cta" type="button" aria-label="Read the Florist Management System case study">
-            Read case study
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-        </div>
-      </article>
-
-      <article class="gcard reveal" data-project="brokerage" data-cat="Frontend">
-        <div class="gcard-media">
-          <img src="portfolio_images/case_study_5.png" alt="Real Estate Brokerage Module screenshot" loading="lazy" decoding="async">
-          <span class="gcard-badge">Real estate · Angular</span>
-        </div>
-        <div class="gcard-body">
-          <div class="gcard-head">
-            <h4>Real Estate Brokerage Module</h4>
-            <span class="gcard-metric">Agent billing &amp; payouts</span>
-          </div>
-          <p>A brokerage module for a real estate app — agents, billing and commission payouts under role-based access.</p>
-          <ul class="tags"><li>Angular</li><li>Material UI</li><li>REST API</li></ul>
-          <button class="gcard-cta" type="button" aria-label="Read the Real Estate Brokerage Module case study">
-            Read case study
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-        </div>
-      </article>
-
-      <article class="gcard reveal" data-project="sweep" data-cat="Frontend">
-        <div class="gcard-media">
-          <img src="portfolio_images/case_study_12.png" alt="Sweep Service Client Panel screenshot" loading="lazy" decoding="async">
-          <span class="gcard-badge">Frontend · Angular</span>
-        </div>
-        <div class="gcard-body">
-          <div class="gcard-head">
-            <h4>Sweep Service Client Panel</h4>
-            <span class="gcard-metric">Multi-step booking flow</span>
-          </div>
-          <p>The Angular 15 client panel for a home/office cleaning-service platform with a custom booking flow.</p>
-          <ul class="tags"><li>Angular</li><li>TypeScript</li><li>Angular Material</li></ul>
-          <button class="gcard-cta" type="button" aria-label="Read the Sweep Service Client Panel case study">
-            Read case study
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-        </div>
-      </article>
-
-      <article class="gcard reveal" data-project="insurance" data-cat="Frontend">
-        <div class="gcard-media">
-          <img src="portfolio_images/case_study_14.png" alt="Life Insurance Aggregator screenshot" loading="lazy" decoding="async">
-          <span class="gcard-badge">Insurtech · Angular</span>
-        </div>
-        <div class="gcard-body">
-          <div class="gcard-head">
-            <h4>Life Insurance Aggregator</h4>
-            <span class="gcard-metric">Rates + commission calc</span>
-          </div>
-          <p>The Angular frontend for a life-insurance aggregator computing final-expense rates and commission advances.</p>
-          <ul class="tags"><li>Angular</li><li>TypeScript</li><li>Bootstrap</li></ul>
-          <button class="gcard-cta" type="button" aria-label="Read the Life Insurance Aggregator case study">
-            Read case study
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-        </div>
-      </article>
-
-      <article class="gcard reveal" data-project="buddy" data-cat="Full-stack">
-        <div class="gcard-media">
-          <img src="portfolio_images/case_study_13.png" alt="Buddy — Elderly Assistance screenshot" loading="lazy" decoding="async">
-          <span class="gcard-badge">Full-stack</span>
-        </div>
-        <div class="gcard-body">
-          <div class="gcard-head">
-            <h4>Buddy — Elderly Assistance</h4>
-            <span class="gcard-metric">Static UI → live system</span>
-          </div>
-          <p>A subscription-based elderly-assistance platform — I turned a finished UI skin into a working booking system.</p>
-          <ul class="tags"><li>Laravel</li><li>MySQL</li><li>jQuery</li><li>JavaScript</li></ul>
-          <button class="gcard-cta" type="button" aria-label="Read the Buddy — Elderly Assistance case study">
-            Read case study
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-        </div>
-      </article>
-
-      <article class="gcard reveal" data-project="wholesale" data-cat="Full-stack">
-        <div class="gcard-media">
-          <img src="portfolio_images/case_study_15.png" alt="Wholesale Order Platform screenshot" loading="lazy" decoding="async">
-          <span class="gcard-badge">E-commerce · Redesign</span>
-        </div>
-        <div class="gcard-body">
-          <div class="gcard-head">
-            <h4>Wholesale Order Platform</h4>
-            <span class="gcard-metric">Modernised web + panel</span>
-          </div>
-          <p>Redesigned a wholesale/retail platform and rebuilt its distributor order-booking panel.</p>
-          <ul class="tags"><li>Laravel</li><li>jQuery</li><li>Bootstrap</li><li>JavaScript</li></ul>
-          <button class="gcard-cta" type="button" aria-label="Read the Wholesale Order Platform case study">
-            Read case study
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-        </div>
-      </article>
-
-      <article class="gcard reveal" data-project="trimming" data-cat="Full-stack">
-        <div class="gcard-media">
-          <img src="portfolio_images/case_study_11.png" alt="Video Trimming Feature screenshot" loading="lazy" decoding="async">
-          <span class="gcard-badge">Fitness · Video</span>
-        </div>
-        <div class="gcard-body">
-          <div class="gcard-head">
-            <h4>Video Trimming Feature</h4>
-            <span class="gcard-metric">Frame-precise clips</span>
-          </div>
-          <p>A video-trimming tool for a fitness platform, letting users cut short clips with precise start/end frames.</p>
-          <ul class="tags"><li>Laravel</li><li>FFmpeg</li><li>jQuery</li><li>JavaScript</li></ul>
-          <button class="gcard-cta" type="button" aria-label="Read the Video Trimming Feature case study">
-            Read case study
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-        </div>
-      </article>
-
-      <article class="gcard reveal" data-project="scraper" data-cat="Backend">
-        <div class="gcard-media">
-          <img src="portfolio_images/case_study_17.png" alt="Amazon Scraper + FB Poster screenshot" loading="lazy" decoding="async">
-          <span class="gcard-badge">Automation · Scraping</span>
-        </div>
-        <div class="gcard-body">
-          <div class="gcard-head">
-            <h4>Amazon Scraper + FB Poster</h4>
-            <span class="gcard-metric">Fully automated hourly</span>
-          </div>
-          <p>An automation that scrapes Amazon products and posts affiliate content to Facebook every hour.</p>
-          <ul class="tags"><li>Laravel</li><li>Automation</li><li>Web scraping</li><li>Cron</li></ul>
-          <button class="gcard-cta" type="button" aria-label="Read the Amazon Scraper + FB Poster case study">
-            Read case study
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-        </div>
-      </article>
-
-      <article class="gcard reveal" data-project="menu-builder" data-cat="Full-stack">
-        <div class="gcard-media">
-          <img src="portfolio_images/case_study_25.png" alt="Drag &amp; Drop Menu Builder screenshot" loading="lazy" decoding="async">
-          <span class="gcard-badge">Tooling</span>
-        </div>
-        <div class="gcard-body">
-          <div class="gcard-head">
-            <h4>Drag &amp; Drop Menu Builder</h4>
-            <span class="gcard-metric">Nested, no-code menus</span>
-          </div>
-          <p>A drag-and-drop nested menu builder that lets admins structure multi-level navigation visually.</p>
-          <ul class="tags"><li>Laravel</li><li>jQuery</li><li>JavaScript</li><li>AJAX</li></ul>
-          <button class="gcard-cta" type="button" aria-label="Read the Drag &amp; Drop Menu Builder case study">
-            Read case study
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-        </div>
-      </article>
-
-      <article class="gcard reveal" data-project="invoice" data-cat="Backend">
-        <div class="gcard-media">
-          <img src="portfolio_images/case_study_26.png" alt="Manual Invoice &amp; PDF Billing screenshot" loading="lazy" decoding="async">
-          <span class="gcard-badge">Billing</span>
-        </div>
-        <div class="gcard-body">
-          <div class="gcard-head">
-            <h4>Manual Invoice &amp; PDF Billing</h4>
-            <span class="gcard-metric">Killed external tools</span>
-          </div>
-          <p>A complete in-platform invoicing module with dynamic line items and professional PDF billing.</p>
-          <ul class="tags"><li>Laravel</li><li>MySQL</li><li>PDF</li><li>jQuery</li></ul>
-          <button class="gcard-cta" type="button" aria-label="Read the Manual Invoice &amp; PDF Billing case study">
-            Read case study
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-        </div>
-      </article>
-
-      <article class="gcard reveal" data-project="restaurant" data-cat="Full-stack">
-        <div class="gcard-media">
-          <img src="portfolio_images/case_study_1.png" alt="Restaurant CMS screenshot" loading="lazy" decoding="async">
-          <span class="gcard-badge">CMS</span>
-        </div>
-        <div class="gcard-body">
-          <div class="gcard-head">
-            <h4>Restaurant CMS</h4>
-            <span class="gcard-metric">Fully client-managed</span>
-          </div>
-          <p>A dynamic restaurant site where every page, image, slider and menu item is editable from the admin panel.</p>
-          <ul class="tags"><li>Laravel</li><li>PHP</li><li>CMS</li><li>MySQL</li></ul>
-          <button class="gcard-cta" type="button" aria-label="Read the Restaurant CMS case study">
-            Read case study
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-        </div>
-      </article>
-
-      <article class="gcard reveal" data-project="blog" data-cat="Full-stack">
-        <div class="gcard-media">
-          <img src="portfolio_images/blog_website.png" alt="Blog Website + Admin Panel screenshot" loading="lazy" decoding="async">
-          <span class="gcard-badge">CMS · Blog</span>
-        </div>
-        <div class="gcard-body">
-          <div class="gcard-head">
-            <h4>Blog Website + Admin Panel</h4>
-            <span class="gcard-metric">Publish in seconds</span>
-          </div>
-          <p>A news-and-articles blog with a custom admin panel for managing everything, built for safe self-publishing.</p>
-          <ul class="tags"><li>Laravel</li><li>PHP</li><li>MySQL</li></ul>
-          <button class="gcard-cta" type="button" aria-label="Read the Blog Website + Admin Panel case study">
-            Read case study
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-        </div>
-      </article>
-
-      <article class="gcard reveal" data-project="scraft" data-cat="E-commerce">
-        <div class="gcard-media">
-          <img src="portfolio_images/case_study_20.png" alt="Scraft Uniworld — WooCommerce screenshot" loading="lazy" decoding="async">
-          <span class="gcard-badge">WordPress · WooCommerce</span>
-        </div>
-        <div class="gcard-body">
-          <div class="gcard-head">
-            <h4>Scraft Uniworld — WooCommerce</h4>
-            <span class="gcard-metric">Marketplace-linked store</span>
-          </div>
-          <p>Turned a WordPress product showcase into a marketplace-linked store via WooCommerce external products.</p>
-          <ul class="tags"><li>WordPress</li><li>WooCommerce</li><li>PHP</li></ul>
-          <button class="gcard-cta" type="button" aria-label="Read the Scraft Uniworld — WooCommerce case study">
-            Read case study
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-        </div>
-      </article>
-
-      <article class="gcard reveal" data-project="tourism" data-cat="AI">
-        <div class="gcard-media">
-          <img src="portfolio_images/case_study_30.png" alt="Tourism Website (Lovable AI) screenshot" loading="lazy" decoding="async">
-          <span class="gcard-badge">AI-built · Rapid</span>
-        </div>
-        <div class="gcard-body">
-          <div class="gcard-head">
-            <h4>Tourism Website (Lovable AI)</h4>
-            <span class="gcard-metric">Live in a short window</span>
-          </div>
-          <p>A clean, responsive tourism site generated with the Lovable AI platform, then refined and deployed live.</p>
-          <ul class="tags"><li>Lovable AI</li><li>HTML</li><li>CSS</li></ul>
-          <button class="gcard-cta" type="button" aria-label="Read the Tourism Website (Lovable AI) case study">
-            Read case study
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-        </div>
-      </article>
-    </div>
   </div>
 </section>
 
-<!-- ───────────────────────── GAMES ───────────────────────── -->
-<section id="games" class="section section-alt">
-  <div class="wrap">
-    <header class="section-head reveal">
-      <p class="section-tag">The arcade</p>
-      <h2 class="section-title">Take a break. Play something.</h2>
-      <p class="section-lead">
-        Every game below is written from scratch — no engines, no libraries, no ads.
-        Click a card and it opens right here in the page.
+<!-- ───────────────────── THE RACK ───────────────────── -->
+<section class="rack-section" id="rack">
+  <div class="rack-wrap">
+    <header class="rack-head reveal">
+      <h2 class="display display-rack">THE <span>RACK</span></h2>
+      <p>
+        One issue can tell you how someone builds.
+        <span>Read them all and you know exactly what you're hiring.</span>
       </p>
     </header>
 
-    <div class="game-grid">
+    <div class="shelf-tabs reveal" role="group" aria-label="Filter issues by type">
+      <button class="tab on" data-filter="all" type="button">ALL <span>34</span></button>
+      <button class="tab" data-filter="AI" type="button">AI <span>3</span></button>
+      <button class="tab" data-filter="Backend" type="button">BACKEND <span>11</span></button>
+      <button class="tab" data-filter="Full-stack" type="button">FULL-STACK <span>11</span></button>
+      <button class="tab" data-filter="Frontend" type="button">FRONTEND <span>4</span></button>
+      <button class="tab" data-filter="Mobile" type="button">MOBILE <span>1</span></button>
+      <button class="tab" data-filter="E-commerce" type="button">E-COMMERCE <span>4</span></button>
+    </div>
 
-      <button class="game-card reveal" data-game="snake" type="button">
-        <span class="game-art art-snake" aria-hidden="true">
-          <i></i><i></i><i></i><i></i>
-          <b>🍎</b>
-        </span>
-        <span class="game-body">
-          <span class="game-name">Snake <span class="game-emoji" aria-hidden="true">🐍</span></span>
-          <span class="game-desc">The classic. Eat, grow, don't bite yourself. Arrow keys or swipe.</span>
-          <span class="game-meta">
-            <span class="chip">Canvas</span>
-            <span class="score" data-best="snake">Best: —</span>
-          </span>
-        </span>
-      </button>
+    <div class="newsstand">
+      <span class="newsstand-back" aria-hidden="true"></span>
+      <div class="rack-tier" id="rackTier">
+        <article class="mag-slot reveal" data-project="ai-dish" data-cat="AI">
+          <button class="mag-lift" type="button" aria-label="Issue 01 — AI Restaurant &amp; Dish Search. AI · Backend. Semantic vector search. Read the case study.">
+            <span class="mag-cover">
+              <img src="portfolio_images/case_study_28.png" alt="" loading="lazy" decoding="async">
+              <span class="mag-scrim"></span>
+              <span class="mag-face">
+                <span class="mag-kicker">AI · Backend</span>
+                <span class="mag-metric">Semantic vector search</span>
+                <span class="mag-title">AI Restaurant &amp; Dish Search</span>
+                <span class="mag-foot"><span class="mag-no">Nº 01</span><span class="mag-read">READ</span></span>
+              </span>
+              <span class="mag-open">OPEN ISSUE</span>
+            </span>
+          </button>
+          <span class="mag-issue">ISSUE 01</span>
+        </article>
 
-      <button class="game-card reveal" data-game="2048" type="button">
-        <span class="game-art art-2048" aria-hidden="true">
-          <i>2</i><i>4</i><i>8</i><i>16</i>
-        </span>
-        <span class="game-body">
-          <span class="game-name">2048 <span class="game-emoji" aria-hidden="true">🧩</span></span>
-          <span class="game-desc">Slide, merge, chase the tile. Deceptively hard to actually finish.</span>
-          <span class="game-meta">
-            <span class="chip">Puzzle</span>
-            <span class="score" data-best="2048">Best: —</span>
-          </span>
-        </span>
-      </button>
+        <article class="mag-slot reveal" data-project="llm-eval" data-cat="AI">
+          <button class="mag-lift" type="button" aria-label="Issue 02 — AI LLM Evaluation Platform. AI · Frontend. 50–60 E2E tests. Read the case study.">
+            <span class="mag-cover">
+              <img src="portfolio_images/case_study_21.png" alt="" loading="lazy" decoding="async">
+              <span class="mag-scrim"></span>
+              <span class="mag-face">
+                <span class="mag-kicker">AI · Frontend</span>
+                <span class="mag-metric">50–60 E2E tests</span>
+                <span class="mag-title">AI LLM Evaluation Platform</span>
+                <span class="mag-foot"><span class="mag-no">Nº 02</span><span class="mag-read">READ</span></span>
+              </span>
+              <span class="mag-open">OPEN ISSUE</span>
+            </span>
+          </button>
+          <span class="mag-issue">ISSUE 02</span>
+        </article>
 
-      <button class="game-card reveal" data-game="memory" type="button">
-        <span class="game-art art-memory" aria-hidden="true">
-          <i>🌞</i><i>🌵</i><i>🌊</i><i>🌸</i><i>🍋</i><i>🔥</i>
-        </span>
-        <span class="game-body">
-          <span class="game-name">Memory Match <span class="game-emoji" aria-hidden="true">🃏</span></span>
-          <span class="game-desc">Flip pairs, clear the board. Fewer moves is a better brain.</span>
-          <span class="game-meta">
-            <span class="chip">Memory</span>
-            <span class="score" data-best="memory">Best: —</span>
-          </span>
-        </span>
-      </button>
+        <article class="mag-slot reveal" data-project="fitness" data-cat="Backend">
+          <button class="mag-lift" type="button" aria-label="Issue 03 — Health &amp; Fitness Platform. Fitness · Backend. Scaled to 40k+ users. Read the case study.">
+            <span class="mag-cover">
+              <img src="portfolio_images/case_study_10.png" alt="" loading="lazy" decoding="async">
+              <span class="mag-scrim"></span>
+              <span class="mag-face">
+                <span class="mag-kicker">Fitness · Backend</span>
+                <span class="mag-metric">Scaled to 40k+ users</span>
+                <span class="mag-title">Health &amp; Fitness Platform</span>
+                <span class="mag-foot"><span class="mag-no">Nº 03</span><span class="mag-read">READ</span></span>
+              </span>
+              <span class="mag-open">OPEN ISSUE</span>
+            </span>
+          </button>
+          <span class="mag-issue">ISSUE 03</span>
+        </article>
 
-      <button class="game-card reveal" data-game="ttt" type="button">
-        <span class="game-art art-ttt" aria-hidden="true">
-          <i>X</i><i>O</i><i>X</i><i>O</i><i>X</i><i>O</i><i>X</i><i>O</i><i>X</i>
-        </span>
-        <span class="game-body">
-          <span class="game-name">Tic-Tac-Toe <span class="game-emoji" aria-hidden="true">🤖</span></span>
-          <span class="game-desc">Play a minimax AI. On Hard it genuinely cannot be beaten — try.</span>
-          <span class="game-meta">
-            <span class="chip">AI</span>
-            <span class="score" data-best="ttt">Best: —</span>
-          </span>
-        </span>
-      </button>
+        <article class="mag-slot reveal" data-project="betting" data-cat="Backend">
+          <button class="mag-lift" type="button" aria-label="Issue 04 — Real-Time Sports Betting API. Fintech · Realtime. Live odds every 30s. Read the case study.">
+            <span class="mag-cover">
+              <img src="portfolio_images/case_study_29.png" alt="" loading="lazy" decoding="async">
+              <span class="mag-scrim"></span>
+              <span class="mag-face">
+                <span class="mag-kicker">Fintech · Realtime</span>
+                <span class="mag-metric">Live odds every 30s</span>
+                <span class="mag-title">Real-Time Sports Betting API</span>
+                <span class="mag-foot"><span class="mag-no">Nº 04</span><span class="mag-read">READ</span></span>
+              </span>
+              <span class="mag-open">OPEN ISSUE</span>
+            </span>
+          </button>
+          <span class="mag-issue">ISSUE 04</span>
+        </article>
 
-      <a class="game-card reveal" data-external="true" href="https://kanwal97.github.io/gatka-warriors/" target="_blank" rel="noopener">
-        <span class="game-art art-gatka" aria-hidden="true">
-          <i>⚔️</i>
-        </span>
-        <span class="game-body">
-          <span class="game-name">Gatka Warriors <span class="game-emoji" aria-hidden="true">🛡️</span></span>
-          <span class="game-desc">Step into the arena of the Sikh martial art of Gatka. Opens in a new tab — my own project, hosted separately.</span>
-          <span class="game-meta">
-            <span class="chip">Play now ↗</span>
-          </span>
-        </span>
-      </a>
+        <article class="mag-slot reveal" data-project="event-vendor" data-cat="Backend">
+          <button class="mag-lift" type="button" aria-label="Issue 05 — Event Vendor Marketplace. Startup MVP · NestJS. MVP backend on AWS. Read the case study.">
+            <span class="mag-cover">
+              <img src="portfolio_images/case_study_24.png" alt="" loading="lazy" decoding="async">
+              <span class="mag-scrim"></span>
+              <span class="mag-face">
+                <span class="mag-kicker">Startup MVP · NestJS</span>
+                <span class="mag-metric">MVP backend on AWS</span>
+                <span class="mag-title">Event Vendor Marketplace</span>
+                <span class="mag-foot"><span class="mag-no">Nº 05</span><span class="mag-read">READ</span></span>
+              </span>
+              <span class="mag-open">OPEN ISSUE</span>
+            </span>
+          </button>
+          <span class="mag-issue">ISSUE 05</span>
+        </article>
 
+        <article class="mag-slot reveal" data-project="medusa-search" data-cat="Backend">
+          <button class="mag-lift" type="button" aria-label="Issue 06 — Medusa Advanced Search. E-commerce · Search. Typo-tolerant fuzzy search. Read the case study.">
+            <span class="mag-cover">
+              <img src="portfolio_images/case_study_27.png" alt="" loading="lazy" decoding="async">
+              <span class="mag-scrim"></span>
+              <span class="mag-face">
+                <span class="mag-kicker">E-commerce · Search</span>
+                <span class="mag-metric">Typo-tolerant fuzzy search</span>
+                <span class="mag-title">Medusa Advanced Search</span>
+                <span class="mag-foot"><span class="mag-no">Nº 06</span><span class="mag-read">READ</span></span>
+              </span>
+              <span class="mag-open">OPEN ISSUE</span>
+            </span>
+          </button>
+          <span class="mag-issue">ISSUE 06</span>
+        </article>
+
+        <article class="mag-slot reveal" data-project="social" data-cat="Backend">
+          <button class="mag-lift" type="button" aria-label="Issue 07 — Social Engagement Platform. Social · Backend. Realtime chat + subscriptions. Read the case study.">
+            <span class="mag-cover">
+              <img src="portfolio_images/case_study_6.png" alt="" loading="lazy" decoding="async">
+              <span class="mag-scrim"></span>
+              <span class="mag-face">
+                <span class="mag-kicker">Social · Backend</span>
+                <span class="mag-metric">Realtime chat + subscriptions</span>
+                <span class="mag-title">Social Engagement Platform</span>
+                <span class="mag-foot"><span class="mag-no">Nº 07</span><span class="mag-read">READ</span></span>
+              </span>
+              <span class="mag-open">OPEN ISSUE</span>
+            </span>
+          </button>
+          <span class="mag-issue">ISSUE 07</span>
+        </article>
+
+        <article class="mag-slot reveal" data-project="petcare" data-cat="Full-stack">
+          <button class="mag-lift" type="button" aria-label="Issue 08 — Pet Care Platform. Full-stack · Rescue. Stabilised + DoS mitigated. Read the case study.">
+            <span class="mag-cover">
+              <img src="portfolio_images/case_study_22.png" alt="" loading="lazy" decoding="async">
+              <span class="mag-scrim"></span>
+              <span class="mag-face">
+                <span class="mag-kicker">Full-stack · Rescue</span>
+                <span class="mag-metric">Stabilised + DoS mitigated</span>
+                <span class="mag-title">Pet Care Platform</span>
+                <span class="mag-foot"><span class="mag-no">Nº 08</span><span class="mag-read">READ</span></span>
+              </span>
+              <span class="mag-open">OPEN ISSUE</span>
+            </span>
+          </button>
+          <span class="mag-issue">ISSUE 08</span>
+        </article>
+
+        <article class="mag-slot reveal" data-project="payments" data-cat="Backend">
+          <button class="mag-lift" type="button" aria-label="Issue 09 — Multi-Gateway Payment System. Payments · Architecture. No single point of failure. Read the case study.">
+            <span class="mag-cover">
+              <img src="portfolio_images/case_study_23.png" alt="" loading="lazy" decoding="async">
+              <span class="mag-scrim"></span>
+              <span class="mag-face">
+                <span class="mag-kicker">Payments · Architecture</span>
+                <span class="mag-metric">No single point of failure</span>
+                <span class="mag-title">Multi-Gateway Payment System</span>
+                <span class="mag-foot"><span class="mag-no">Nº 09</span><span class="mag-read">READ</span></span>
+              </span>
+              <span class="mag-open">OPEN ISSUE</span>
+            </span>
+          </button>
+          <span class="mag-issue">ISSUE 09</span>
+        </article>
+
+        <article class="mag-slot reveal" data-project="fooddelivery" data-cat="Full-stack">
+          <button class="mag-lift" type="button" aria-label="Issue 10 — Real-Time Food Delivery Platform. Food delivery · Realtime. Made production-ready. Read the case study.">
+            <span class="mag-cover">
+              <img src="portfolio_images/case_study_16.png" alt="" loading="lazy" decoding="async">
+              <span class="mag-scrim"></span>
+              <span class="mag-face">
+                <span class="mag-kicker">Food delivery · Realtime</span>
+                <span class="mag-metric">Made production-ready</span>
+                <span class="mag-title">Real-Time Food Delivery Platform</span>
+                <span class="mag-foot"><span class="mag-no">Nº 10</span><span class="mag-read">READ</span></span>
+              </span>
+              <span class="mag-open">OPEN ISSUE</span>
+            </span>
+          </button>
+          <span class="mag-issue">ISSUE 10</span>
+        </article>
+
+        <article class="mag-slot reveal" data-project="trading" data-cat="Full-stack">
+          <button class="mag-lift" type="button" aria-label="Issue 11 — Trading Simulator. Fintech · Realtime. Live market, zero risk. Read the case study.">
+            <span class="mag-cover">
+              <img src="portfolio_images/trading_simulator.jpg" alt="" loading="lazy" decoding="async">
+              <span class="mag-scrim"></span>
+              <span class="mag-face">
+                <span class="mag-kicker">Fintech · Realtime</span>
+                <span class="mag-metric">Live market, zero risk</span>
+                <span class="mag-title">Trading Simulator</span>
+                <span class="mag-foot"><span class="mag-no">Nº 11</span><span class="mag-read">READ</span></span>
+              </span>
+              <span class="mag-open">OPEN ISSUE</span>
+            </span>
+          </button>
+          <span class="mag-issue">ISSUE 11</span>
+        </article>
+
+        <article class="mag-slot reveal" data-project="workforce" data-cat="Mobile">
+          <button class="mag-lift" type="button" aria-label="Issue 12 — Workforce Hiring Platform. Mobile · Flutter. Pivoted Ionic → Flutter. Read the case study.">
+            <span class="mag-cover">
+              <img src="portfolio_images/case_study_19.png" alt="" loading="lazy" decoding="async">
+              <span class="mag-scrim"></span>
+              <span class="mag-face">
+                <span class="mag-kicker">Mobile · Flutter</span>
+                <span class="mag-metric">Pivoted Ionic → Flutter</span>
+                <span class="mag-title">Workforce Hiring Platform</span>
+                <span class="mag-foot"><span class="mag-no">Nº 12</span><span class="mag-read">READ</span></span>
+              </span>
+              <span class="mag-open">OPEN ISSUE</span>
+            </span>
+          </button>
+          <span class="mag-issue">ISSUE 12</span>
+        </article>
+
+        <article class="mag-slot reveal" data-project="salon" data-cat="Backend">
+          <button class="mag-lift" type="button" aria-label="Issue 13 — Salon Management Platform. SaaS · Multi-tenant. Zero-loss data migration. Read the case study.">
+            <span class="mag-cover">
+              <img src="portfolio_images/case_study_2.jpg" alt="" loading="lazy" decoding="async">
+              <span class="mag-scrim"></span>
+              <span class="mag-face">
+                <span class="mag-kicker">SaaS · Multi-tenant</span>
+                <span class="mag-metric">Zero-loss data migration</span>
+                <span class="mag-title">Salon Management Platform</span>
+                <span class="mag-foot"><span class="mag-no">Nº 13</span><span class="mag-read">READ</span></span>
+              </span>
+              <span class="mag-open">OPEN ISSUE</span>
+            </span>
+          </button>
+          <span class="mag-issue">ISSUE 13</span>
+        </article>
+
+        <article class="mag-slot reveal" data-project="wahe" data-cat="E-commerce">
+          <button class="mag-lift" type="button" aria-label="Issue 14 — Wahe Furniture — SaaS Commerce. E-commerce · SaaS. Enterprise-ready store. Read the case study.">
+            <span class="mag-cover">
+              <img src="portfolio_images/case_study_18_1.png" alt="" loading="lazy" decoding="async">
+              <span class="mag-scrim"></span>
+              <span class="mag-face">
+                <span class="mag-kicker">E-commerce · SaaS</span>
+                <span class="mag-metric">Enterprise-ready store</span>
+                <span class="mag-title">Wahe Furniture — SaaS Commerce</span>
+                <span class="mag-foot"><span class="mag-no">Nº 14</span><span class="mag-read">READ</span></span>
+              </span>
+              <span class="mag-open">OPEN ISSUE</span>
+            </span>
+          </button>
+          <span class="mag-issue">ISSUE 14</span>
+        </article>
+
+        <article class="mag-slot reveal" data-project="shopping" data-cat="E-commerce">
+          <button class="mag-lift" type="button" aria-label="Issue 15 — Shopping Market. E-commerce. Full storefront + admin. Read the case study.">
+            <span class="mag-cover">
+              <img src="portfolio_images/Shopping_market.png" alt="" loading="lazy" decoding="async">
+              <span class="mag-scrim"></span>
+              <span class="mag-face">
+                <span class="mag-kicker">E-commerce</span>
+                <span class="mag-metric">Full storefront + admin</span>
+                <span class="mag-title">Shopping Market</span>
+                <span class="mag-foot"><span class="mag-no">Nº 15</span><span class="mag-read">READ</span></span>
+              </span>
+              <span class="mag-open">OPEN ISSUE</span>
+            </span>
+          </button>
+          <span class="mag-issue">ISSUE 15</span>
+        </article>
+
+        <article class="mag-slot reveal" data-project="ecom" data-cat="E-commerce">
+          <button class="mag-lift" type="button" aria-label="Issue 16 — E-commerce Store. E-commerce. +30% sales. Read the case study.">
+            <span class="mag-cover">
+              <img src="portfolio_images/e-commerce_store.png" alt="" loading="lazy" decoding="async">
+              <span class="mag-scrim"></span>
+              <span class="mag-face">
+                <span class="mag-kicker">E-commerce</span>
+                <span class="mag-metric">+30% sales</span>
+                <span class="mag-title">E-commerce Store</span>
+                <span class="mag-foot"><span class="mag-no">Nº 16</span><span class="mag-read">READ</span></span>
+              </span>
+              <span class="mag-open">OPEN ISSUE</span>
+            </span>
+          </button>
+          <span class="mag-issue">ISSUE 16</span>
+        </article>
+
+        <article class="mag-slot reveal" data-project="classifieds" data-cat="Full-stack">
+          <button class="mag-lift" type="button" aria-label="Issue 17 — Free Classifieds Platform. Marketplace · Rescue. Rescued to production-ready. Read the case study.">
+            <span class="mag-cover">
+              <img src="portfolio_images/case_study_7.png" alt="" loading="lazy" decoding="async">
+              <span class="mag-scrim"></span>
+              <span class="mag-face">
+                <span class="mag-kicker">Marketplace · Rescue</span>
+                <span class="mag-metric">Rescued to production-ready</span>
+                <span class="mag-title">Free Classifieds Platform</span>
+                <span class="mag-foot"><span class="mag-no">Nº 17</span><span class="mag-read">READ</span></span>
+              </span>
+              <span class="mag-open">OPEN ISSUE</span>
+            </span>
+          </button>
+          <span class="mag-issue">ISSUE 17</span>
+        </article>
+
+        <article class="mag-slot reveal" data-project="dating" data-cat="Backend">
+          <button class="mag-lift" type="button" aria-label="Issue 18 — Dating Platform Optimisation. Performance. Much faster API. Read the case study.">
+            <span class="mag-cover">
+              <img src="portfolio_images/case_study_8.png" alt="" loading="lazy" decoding="async">
+              <span class="mag-scrim"></span>
+              <span class="mag-face">
+                <span class="mag-kicker">Performance</span>
+                <span class="mag-metric">Much faster API</span>
+                <span class="mag-title">Dating Platform Optimisation</span>
+                <span class="mag-foot"><span class="mag-no">Nº 18</span><span class="mag-read">READ</span></span>
+              </span>
+              <span class="mag-open">OPEN ISSUE</span>
+            </span>
+          </button>
+          <span class="mag-issue">ISSUE 18</span>
+        </article>
+
+        <article class="mag-slot reveal" data-project="sandwich" data-cat="Backend">
+          <button class="mag-lift" type="button" aria-label="Issue 19 — Custom Sandwich Platform. Optimisation · Realtime. N+1 killed, live orders. Read the case study.">
+            <span class="mag-cover">
+              <img src="portfolio_images/case_study_9.png" alt="" loading="lazy" decoding="async">
+              <span class="mag-scrim"></span>
+              <span class="mag-face">
+                <span class="mag-kicker">Optimisation · Realtime</span>
+                <span class="mag-metric">N+1 killed, live orders</span>
+                <span class="mag-title">Custom Sandwich Platform</span>
+                <span class="mag-foot"><span class="mag-no">Nº 19</span><span class="mag-read">READ</span></span>
+              </span>
+              <span class="mag-open">OPEN ISSUE</span>
+            </span>
+          </button>
+          <span class="mag-issue">ISSUE 19</span>
+        </article>
+
+        <article class="mag-slot reveal" data-project="jobportal" data-cat="Full-stack">
+          <button class="mag-lift" type="button" aria-label="Issue 20 — Job Portal Platform. Full-stack. Built from scratch. Read the case study.">
+            <span class="mag-cover">
+              <img src="portfolio_images/case_study_4.png" alt="" loading="lazy" decoding="async">
+              <span class="mag-scrim"></span>
+              <span class="mag-face">
+                <span class="mag-kicker">Full-stack</span>
+                <span class="mag-metric">Built from scratch</span>
+                <span class="mag-title">Job Portal Platform</span>
+                <span class="mag-foot"><span class="mag-no">Nº 20</span><span class="mag-read">READ</span></span>
+              </span>
+              <span class="mag-open">OPEN ISSUE</span>
+            </span>
+          </button>
+          <span class="mag-issue">ISSUE 20</span>
+        </article>
+
+        <article class="mag-slot reveal" data-project="florist" data-cat="Frontend">
+          <button class="mag-lift" type="button" aria-label="Issue 21 — Florist Management System. Frontend · Angular. CRM · accounting · reporting. Read the case study.">
+            <span class="mag-cover">
+              <img src="portfolio_images/case_study_3.png" alt="" loading="lazy" decoding="async">
+              <span class="mag-scrim"></span>
+              <span class="mag-face">
+                <span class="mag-kicker">Frontend · Angular</span>
+                <span class="mag-metric">CRM · accounting · reporting</span>
+                <span class="mag-title">Florist Management System</span>
+                <span class="mag-foot"><span class="mag-no">Nº 21</span><span class="mag-read">READ</span></span>
+              </span>
+              <span class="mag-open">OPEN ISSUE</span>
+            </span>
+          </button>
+          <span class="mag-issue">ISSUE 21</span>
+        </article>
+
+        <article class="mag-slot reveal" data-project="brokerage" data-cat="Frontend">
+          <button class="mag-lift" type="button" aria-label="Issue 22 — Real Estate Brokerage Module. Real estate · Angular. Agent billing &amp; payouts. Read the case study.">
+            <span class="mag-cover">
+              <img src="portfolio_images/case_study_5.png" alt="" loading="lazy" decoding="async">
+              <span class="mag-scrim"></span>
+              <span class="mag-face">
+                <span class="mag-kicker">Real estate · Angular</span>
+                <span class="mag-metric">Agent billing &amp; payouts</span>
+                <span class="mag-title">Real Estate Brokerage Module</span>
+                <span class="mag-foot"><span class="mag-no">Nº 22</span><span class="mag-read">READ</span></span>
+              </span>
+              <span class="mag-open">OPEN ISSUE</span>
+            </span>
+          </button>
+          <span class="mag-issue">ISSUE 22</span>
+        </article>
+
+        <article class="mag-slot reveal" data-project="sweep" data-cat="Frontend">
+          <button class="mag-lift" type="button" aria-label="Issue 23 — Sweep Service Client Panel. Frontend · Angular. Multi-step booking flow. Read the case study.">
+            <span class="mag-cover">
+              <img src="portfolio_images/case_study_12.png" alt="" loading="lazy" decoding="async">
+              <span class="mag-scrim"></span>
+              <span class="mag-face">
+                <span class="mag-kicker">Frontend · Angular</span>
+                <span class="mag-metric">Multi-step booking flow</span>
+                <span class="mag-title">Sweep Service Client Panel</span>
+                <span class="mag-foot"><span class="mag-no">Nº 23</span><span class="mag-read">READ</span></span>
+              </span>
+              <span class="mag-open">OPEN ISSUE</span>
+            </span>
+          </button>
+          <span class="mag-issue">ISSUE 23</span>
+        </article>
+
+        <article class="mag-slot reveal" data-project="insurance" data-cat="Frontend">
+          <button class="mag-lift" type="button" aria-label="Issue 24 — Life Insurance Aggregator. Insurtech · Angular. Rates + commission calc. Read the case study.">
+            <span class="mag-cover">
+              <img src="portfolio_images/case_study_14.png" alt="" loading="lazy" decoding="async">
+              <span class="mag-scrim"></span>
+              <span class="mag-face">
+                <span class="mag-kicker">Insurtech · Angular</span>
+                <span class="mag-metric">Rates + commission calc</span>
+                <span class="mag-title">Life Insurance Aggregator</span>
+                <span class="mag-foot"><span class="mag-no">Nº 24</span><span class="mag-read">READ</span></span>
+              </span>
+              <span class="mag-open">OPEN ISSUE</span>
+            </span>
+          </button>
+          <span class="mag-issue">ISSUE 24</span>
+        </article>
+
+        <article class="mag-slot reveal" data-project="buddy" data-cat="Full-stack">
+          <button class="mag-lift" type="button" aria-label="Issue 25 — Buddy — Elderly Assistance. Full-stack. Static UI → live system. Read the case study.">
+            <span class="mag-cover">
+              <img src="portfolio_images/case_study_13.png" alt="" loading="lazy" decoding="async">
+              <span class="mag-scrim"></span>
+              <span class="mag-face">
+                <span class="mag-kicker">Full-stack</span>
+                <span class="mag-metric">Static UI → live system</span>
+                <span class="mag-title">Buddy — Elderly Assistance</span>
+                <span class="mag-foot"><span class="mag-no">Nº 25</span><span class="mag-read">READ</span></span>
+              </span>
+              <span class="mag-open">OPEN ISSUE</span>
+            </span>
+          </button>
+          <span class="mag-issue">ISSUE 25</span>
+        </article>
+
+        <article class="mag-slot reveal" data-project="wholesale" data-cat="Full-stack">
+          <button class="mag-lift" type="button" aria-label="Issue 26 — Wholesale Order Platform. E-commerce · Redesign. Modernised web + panel. Read the case study.">
+            <span class="mag-cover">
+              <img src="portfolio_images/case_study_15.png" alt="" loading="lazy" decoding="async">
+              <span class="mag-scrim"></span>
+              <span class="mag-face">
+                <span class="mag-kicker">E-commerce · Redesign</span>
+                <span class="mag-metric">Modernised web + panel</span>
+                <span class="mag-title">Wholesale Order Platform</span>
+                <span class="mag-foot"><span class="mag-no">Nº 26</span><span class="mag-read">READ</span></span>
+              </span>
+              <span class="mag-open">OPEN ISSUE</span>
+            </span>
+          </button>
+          <span class="mag-issue">ISSUE 26</span>
+        </article>
+
+        <article class="mag-slot reveal" data-project="trimming" data-cat="Full-stack">
+          <button class="mag-lift" type="button" aria-label="Issue 27 — Video Trimming Feature. Fitness · Video. Frame-precise clips. Read the case study.">
+            <span class="mag-cover">
+              <img src="portfolio_images/case_study_11.png" alt="" loading="lazy" decoding="async">
+              <span class="mag-scrim"></span>
+              <span class="mag-face">
+                <span class="mag-kicker">Fitness · Video</span>
+                <span class="mag-metric">Frame-precise clips</span>
+                <span class="mag-title">Video Trimming Feature</span>
+                <span class="mag-foot"><span class="mag-no">Nº 27</span><span class="mag-read">READ</span></span>
+              </span>
+              <span class="mag-open">OPEN ISSUE</span>
+            </span>
+          </button>
+          <span class="mag-issue">ISSUE 27</span>
+        </article>
+
+        <article class="mag-slot reveal" data-project="scraper" data-cat="Backend">
+          <button class="mag-lift" type="button" aria-label="Issue 28 — Amazon Scraper + FB Poster. Automation · Scraping. Fully automated hourly. Read the case study.">
+            <span class="mag-cover">
+              <img src="portfolio_images/case_study_17.png" alt="" loading="lazy" decoding="async">
+              <span class="mag-scrim"></span>
+              <span class="mag-face">
+                <span class="mag-kicker">Automation · Scraping</span>
+                <span class="mag-metric">Fully automated hourly</span>
+                <span class="mag-title">Amazon Scraper + FB Poster</span>
+                <span class="mag-foot"><span class="mag-no">Nº 28</span><span class="mag-read">READ</span></span>
+              </span>
+              <span class="mag-open">OPEN ISSUE</span>
+            </span>
+          </button>
+          <span class="mag-issue">ISSUE 28</span>
+        </article>
+
+        <article class="mag-slot reveal" data-project="menu-builder" data-cat="Full-stack">
+          <button class="mag-lift" type="button" aria-label="Issue 29 — Drag &amp; Drop Menu Builder. Tooling. Nested, no-code menus. Read the case study.">
+            <span class="mag-cover">
+              <img src="portfolio_images/case_study_25.png" alt="" loading="lazy" decoding="async">
+              <span class="mag-scrim"></span>
+              <span class="mag-face">
+                <span class="mag-kicker">Tooling</span>
+                <span class="mag-metric">Nested, no-code menus</span>
+                <span class="mag-title">Drag &amp; Drop Menu Builder</span>
+                <span class="mag-foot"><span class="mag-no">Nº 29</span><span class="mag-read">READ</span></span>
+              </span>
+              <span class="mag-open">OPEN ISSUE</span>
+            </span>
+          </button>
+          <span class="mag-issue">ISSUE 29</span>
+        </article>
+
+        <article class="mag-slot reveal" data-project="invoice" data-cat="Backend">
+          <button class="mag-lift" type="button" aria-label="Issue 30 — Manual Invoice &amp; PDF Billing. Billing. Killed external tools. Read the case study.">
+            <span class="mag-cover">
+              <img src="portfolio_images/case_study_26.png" alt="" loading="lazy" decoding="async">
+              <span class="mag-scrim"></span>
+              <span class="mag-face">
+                <span class="mag-kicker">Billing</span>
+                <span class="mag-metric">Killed external tools</span>
+                <span class="mag-title">Manual Invoice &amp; PDF Billing</span>
+                <span class="mag-foot"><span class="mag-no">Nº 30</span><span class="mag-read">READ</span></span>
+              </span>
+              <span class="mag-open">OPEN ISSUE</span>
+            </span>
+          </button>
+          <span class="mag-issue">ISSUE 30</span>
+        </article>
+
+        <article class="mag-slot reveal" data-project="restaurant" data-cat="Full-stack">
+          <button class="mag-lift" type="button" aria-label="Issue 31 — Restaurant CMS. CMS. Fully client-managed. Read the case study.">
+            <span class="mag-cover">
+              <img src="portfolio_images/case_study_1.png" alt="" loading="lazy" decoding="async">
+              <span class="mag-scrim"></span>
+              <span class="mag-face">
+                <span class="mag-kicker">CMS</span>
+                <span class="mag-metric">Fully client-managed</span>
+                <span class="mag-title">Restaurant CMS</span>
+                <span class="mag-foot"><span class="mag-no">Nº 31</span><span class="mag-read">READ</span></span>
+              </span>
+              <span class="mag-open">OPEN ISSUE</span>
+            </span>
+          </button>
+          <span class="mag-issue">ISSUE 31</span>
+        </article>
+
+        <article class="mag-slot reveal" data-project="blog" data-cat="Full-stack">
+          <button class="mag-lift" type="button" aria-label="Issue 32 — Blog Website + Admin Panel. CMS · Blog. Publish in seconds. Read the case study.">
+            <span class="mag-cover">
+              <img src="portfolio_images/blog_website.png" alt="" loading="lazy" decoding="async">
+              <span class="mag-scrim"></span>
+              <span class="mag-face">
+                <span class="mag-kicker">CMS · Blog</span>
+                <span class="mag-metric">Publish in seconds</span>
+                <span class="mag-title">Blog Website + Admin Panel</span>
+                <span class="mag-foot"><span class="mag-no">Nº 32</span><span class="mag-read">READ</span></span>
+              </span>
+              <span class="mag-open">OPEN ISSUE</span>
+            </span>
+          </button>
+          <span class="mag-issue">ISSUE 32</span>
+        </article>
+
+        <article class="mag-slot reveal" data-project="scraft" data-cat="E-commerce">
+          <button class="mag-lift" type="button" aria-label="Issue 33 — Scraft Uniworld — WooCommerce. WordPress · WooCommerce. Marketplace-linked store. Read the case study.">
+            <span class="mag-cover">
+              <img src="portfolio_images/case_study_20.png" alt="" loading="lazy" decoding="async">
+              <span class="mag-scrim"></span>
+              <span class="mag-face">
+                <span class="mag-kicker">WordPress · WooCommerce</span>
+                <span class="mag-metric">Marketplace-linked store</span>
+                <span class="mag-title">Scraft Uniworld — WooCommerce</span>
+                <span class="mag-foot"><span class="mag-no">Nº 33</span><span class="mag-read">READ</span></span>
+              </span>
+              <span class="mag-open">OPEN ISSUE</span>
+            </span>
+          </button>
+          <span class="mag-issue">ISSUE 33</span>
+        </article>
+
+        <article class="mag-slot reveal" data-project="tourism" data-cat="AI">
+          <button class="mag-lift" type="button" aria-label="Issue 34 — Tourism Website (Lovable AI). AI-built · Rapid. Live in a short window. Read the case study.">
+            <span class="mag-cover">
+              <img src="portfolio_images/case_study_30.png" alt="" loading="lazy" decoding="async">
+              <span class="mag-scrim"></span>
+              <span class="mag-face">
+                <span class="mag-kicker">AI-built · Rapid</span>
+                <span class="mag-metric">Live in a short window</span>
+                <span class="mag-title">Tourism Website (Lovable AI)</span>
+                <span class="mag-foot"><span class="mag-no">Nº 34</span><span class="mag-read">READ</span></span>
+              </span>
+              <span class="mag-open">OPEN ISSUE</span>
+            </span>
+          </button>
+          <span class="mag-issue">ISSUE 34</span>
+        </article>
+      </div>
+      <p class="rack-empty" id="rackEmpty" hidden>NO ISSUES ON THIS SHELF.</p>
     </div>
   </div>
 </section>
 
-<!-- ───────────────────────── ABOUT ───────────────────────── -->
-<section id="about" class="section">
-  <div class="wrap about-grid">
-    <div class="about-copy reveal">
-      <p class="section-tag">About</p>
-      <h2 class="section-title">Seven years of shipping</h2>
-      <p>
-        I've spent my career on the full stack — designing database schemas at
-        9am and polishing hover states at 5pm. That range means I build things
-        that hold together, not just things that demo well.
-      </p>
-      <p>
-        Most of my work lives in <strong>Laravel</strong> on the backend and
-        <strong>Next.js</strong> on the front. I care about clean API contracts,
-        readable code, and shipping on time — the unglamorous habits that make
-        a product survive its second year.
-      </p>
-      <p>
-        I've built for fitness apps, e-commerce stores, real estate platforms,
-        food delivery and SaaS. Different domains, same job: understand the
-        problem properly, then make it simple.
-      </p>
-
-      <div class="about-links">
-        <a class="btn btn-primary" href="#contact">
-          Let's work together
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-      </div>
-    </div>
-
-    <div class="skills reveal">
-      <h3 class="skills-title">What I work with</h3>
-
-      <div class="skill-group">
-        <p class="skill-label">Backend</p>
-        <ul class="skill-list">
-          <li>Laravel</li><li>PHP</li><li>NestJS</li><li>Node.js</li>
-          <li>REST APIs</li><li>Livewire</li><li>Filament</li><li>Queues &amp; jobs</li>
-        </ul>
-      </div>
-
-      <div class="skill-group">
-        <p class="skill-label">Frontend</p>
-        <ul class="skill-list">
-          <li>Next.js</li><li>React</li><li>Angular</li><li>Vue</li>
-          <li>TypeScript</li><li>JavaScript</li><li>jQuery</li>
-          <li>Tailwind</li><li>Bootstrap</li><li>Angular Material</li>
-        </ul>
-      </div>
-
-      <div class="skill-group">
-        <p class="skill-label">Mobile</p>
-        <ul class="skill-list">
-          <li>Flutter</li><li>Ionic</li><li>Firebase</li>
-        </ul>
-      </div>
-
-      <div class="skill-group">
-        <p class="skill-label">AI &amp; data</p>
-        <ul class="skill-list">
-          <li>OpenAI API</li><li>Anthropic Claude</li><li>LLM integration</li>
-          <li>Vector / semantic search</li><li>Embeddings</li><li>Prompt engineering</li>
-        </ul>
-      </div>
-
-      <div class="skill-group">
-        <p class="skill-label">Databases</p>
-        <ul class="skill-list">
-          <li>MySQL</li><li>PostgreSQL</li><li>MongoDB</li>
-          <li>Firestore</li><li>Redis</li>
-        </ul>
-      </div>
-
-      <div class="skill-group">
-        <p class="skill-label">Commerce</p>
-        <ul class="skill-list">
-          <li>Aimeos</li><li>Medusa</li><li>WooCommerce</li>
-          <li>Stripe</li><li>PayPal</li><li>Razorpay</li>
-        </ul>
-      </div>
-
-      <div class="skill-group">
-        <p class="skill-label">Infra &amp; tools</p>
-        <ul class="skill-list">
-          <li>AWS (S3, RDS)</li><li>Docker</li><li>Coolify</li><li>CI/CD</li>
-          <li>Git</li><li>Linux</li><li>Socket.IO</li><li>WebSockets</li>
-          <li>FFmpeg</li><li>Playwright</li><li>WordPress</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ───────────────────────── CONTACT ───────────────────────── -->
-<section id="contact" class="section section-alt">
+<!-- ───────────────────── THE ARCADE ───────────────────── -->
+<section id="games" class="section section-arcade">
   <div class="wrap">
-    <div class="contact-card reveal">
-      <div class="contact-glow" aria-hidden="true"></div>
-      <p class="section-tag">Contact</p>
-      <h2 class="section-title">Got something to build?</h2>
-      <p class="section-lead">
+    <header class="section-head reveal">
+      <p class="kicker"><i aria-hidden="true"></i><span>SIDE OF THE RACK</span></p>
+      <h2 class="display display-2">THE <span>ARCADE</span></h2>
+      <p class="lead">
+        Every cartridge below is written from scratch — no engines, no libraries, no ads.
+        Pull one out and it plays right here in the page.
+      </p>
+    </header>
+
+    <div class="cart-tier">
+      <button class="cart-slot reveal" data-game="snake" type="button">
+        <span class="cart">
+          <span class="cart-art art-snake" aria-hidden="true">
+            <i></i><i></i><i></i><i></i><b>🍎</b>
+          </span>
+          <span class="cart-body">
+            <span class="cart-kicker">CANVAS · CLASSIC</span>
+            <span class="cart-name">SNAKE</span>
+            <span class="cart-desc">Eat, grow, don't bite yourself. Arrow keys or swipe.</span>
+            <span class="cart-score" data-best="snake">BEST: —</span>
+          </span>
+          <span class="cart-open">PLAY</span>
+        </span>
+        <span class="cart-label">CART 01</span>
+      </button>
+
+      <button class="cart-slot reveal" data-game="2048" type="button">
+        <span class="cart">
+          <span class="cart-art art-2048" aria-hidden="true">
+            <i>2</i><i>4</i><i>8</i><i>16</i>
+          </span>
+          <span class="cart-body">
+            <span class="cart-kicker">PUZZLE · MERGE</span>
+            <span class="cart-name">2048</span>
+            <span class="cart-desc">Slide, merge, chase the tile. Deceptively hard to finish.</span>
+            <span class="cart-score" data-best="2048">BEST: —</span>
+          </span>
+          <span class="cart-open">PLAY</span>
+        </span>
+        <span class="cart-label">CART 02</span>
+      </button>
+
+      <button class="cart-slot reveal" data-game="memory" type="button">
+        <span class="cart">
+          <span class="cart-art art-memory" aria-hidden="true">
+            <i>🌞</i><i>🌵</i><i>🌊</i><i>🌸</i><i>🍋</i><i>🔥</i>
+          </span>
+          <span class="cart-body">
+            <span class="cart-kicker">MEMORY · PAIRS</span>
+            <span class="cart-name">MEMORY MATCH</span>
+            <span class="cart-desc">Flip pairs, clear the board. Fewer moves is a better brain.</span>
+            <span class="cart-score" data-best="memory">BEST: —</span>
+          </span>
+          <span class="cart-open">PLAY</span>
+        </span>
+        <span class="cart-label">CART 03</span>
+      </button>
+
+      <button class="cart-slot reveal" data-game="ttt" type="button">
+        <span class="cart">
+          <span class="cart-art art-ttt" aria-hidden="true">
+            <i>X</i><i>O</i><i>X</i><i>O</i><i>X</i><i>O</i><i>X</i><i>O</i><i>X</i>
+          </span>
+          <span class="cart-body">
+            <span class="cart-kicker">AI · MINIMAX</span>
+            <span class="cart-name">TIC-TAC-TOE</span>
+            <span class="cart-desc">On Hard it genuinely cannot be beaten — try anyway.</span>
+            <span class="cart-score" data-best="ttt">BEST: —</span>
+          </span>
+          <span class="cart-open">PLAY</span>
+        </span>
+        <span class="cart-label">CART 04</span>
+      </button>
+
+      <a class="cart-slot reveal" href="https://kanwal97.github.io/gatka-warriors/" target="_blank" rel="noopener">
+        <span class="cart">
+          <span class="cart-art art-gatka" aria-hidden="true"><i>⚔️</i></span>
+          <span class="cart-body">
+            <span class="cart-kicker">EXTERNAL · ARENA</span>
+            <span class="cart-name">GATKA WARRIORS</span>
+            <span class="cart-desc">The arena of the Sikh martial art of Gatka. Hosted separately.</span>
+            <span class="cart-score">NEW TAB ↗</span>
+          </span>
+          <span class="cart-open">OPEN</span>
+        </span>
+        <span class="cart-label">CART 05</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────── MASTHEAD / ABOUT ───────────────────── -->
+<section id="about" class="section">
+  <div class="wrap">
+    <header class="section-head reveal">
+      <p class="kicker"><i aria-hidden="true"></i><span>WHO PRINTS THIS</span></p>
+      <h2 class="display display-2">THE <span>MASTHEAD</span></h2>
+    </header>
+
+    <div class="masthead-grid">
+      <div class="masthead-copy reveal">
+        <p class="masthead-lede">
+          I've spent my career on the full stack — designing database schemas at 9am and
+          polishing hover states at 5pm.
+        </p>
+        <p>
+          That range means I build things that hold together, not just things that demo well.
+          Most of my work lives in <b>Laravel</b> on the backend and <b>Next.js</b> on the front.
+        </p>
+        <p>
+          I care about clean API contracts, readable code, and shipping on time — the unglamorous
+          habits that make a product survive its second year.
+        </p>
+        <p>
+          Fitness apps, e-commerce stores, real estate platforms, food delivery, SaaS.
+          Different domains, same job: understand the problem properly, then make it simple.
+        </p>
+        <a class="btn btn-solid" href="#contact">LET'S WORK TOGETHER <b aria-hidden="true">→</b></a>
+      </div>
+
+      <div class="masthead-skills reveal">
+        <div class="skill-col">
+          <p class="skill-no">01</p>
+          <p class="label label-hot">BACKEND</p>
+          <ul class="skill-list">
+            <li>Laravel</li><li>PHP</li><li>NestJS</li><li>Node.js</li>
+            <li>REST APIs</li><li>Livewire</li><li>Filament</li><li>Queues &amp; jobs</li>
+          </ul>
+        </div>
+
+        <div class="skill-col">
+          <p class="skill-no">02</p>
+          <p class="label label-hot">FRONTEND</p>
+          <ul class="skill-list">
+            <li>Next.js</li><li>React</li><li>Angular</li><li>Vue</li>
+            <li>TypeScript</li><li>JavaScript</li><li>Tailwind</li>
+            <li>Bootstrap</li><li>Angular Material</li>
+          </ul>
+        </div>
+
+        <div class="skill-col">
+          <p class="skill-no">03</p>
+          <p class="label label-hot">AI &amp; DATA</p>
+          <ul class="skill-list">
+            <li>OpenAI API</li><li>Anthropic Claude</li><li>LLM integration</li>
+            <li>Vector / semantic search</li><li>Embeddings</li><li>Prompt engineering</li>
+          </ul>
+        </div>
+
+        <div class="skill-col">
+          <p class="skill-no">04</p>
+          <p class="label label-hot">DATABASES</p>
+          <ul class="skill-list">
+            <li>MySQL</li><li>PostgreSQL</li><li>MongoDB</li>
+            <li>Firestore</li><li>Redis</li>
+          </ul>
+        </div>
+
+        <div class="skill-col">
+          <p class="skill-no">05</p>
+          <p class="label label-hot">COMMERCE</p>
+          <ul class="skill-list">
+            <li>Aimeos</li><li>Medusa</li><li>WooCommerce</li>
+            <li>Stripe</li><li>PayPal</li><li>Razorpay</li>
+          </ul>
+        </div>
+
+        <div class="skill-col">
+          <p class="skill-no">06</p>
+          <p class="label label-hot">MOBILE</p>
+          <ul class="skill-list">
+            <li>Flutter</li><li>Ionic</li><li>Firebase</li>
+          </ul>
+        </div>
+
+        <div class="skill-col skill-col-wide">
+          <p class="skill-no">07</p>
+          <p class="label label-hot">INFRA &amp; TOOLS</p>
+          <ul class="skill-list">
+            <li>AWS (S3, RDS)</li><li>Docker</li><li>Coolify</li><li>CI/CD</li>
+            <li>Git</li><li>Linux</li><li>Socket.IO</li><li>WebSockets</li>
+            <li>FFmpeg</li><li>Playwright</li><li>WordPress</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────── DIRECT LINE / CONTACT ───────────────────── -->
+<section id="contact" class="section section-contact">
+  <div class="wrap">
+    <div class="direct reveal">
+      <span class="direct-glow" aria-hidden="true"></span>
+      <p class="kicker"><i aria-hidden="true"></i><span>DIRECT LINE</span></p>
+      <h2 class="display display-2">GOT SOMETHING<br><span>TO BUILD?</span></h2>
+      <p class="lead">
         Tell me what you're working on. I read every message and reply within a day.
       </p>
 
-      <div class="contact-links">
-        <a class="contact-link" href="mailto:wahedeveloper@gmail.com">
-          <span class="contact-icon" aria-hidden="true">✉️</span>
-          <span>
-            <b>Email</b>
-            <small>wahedeveloper@gmail.com</small>
+      <div class="direct-links">
+        <a class="direct-link" href="mailto:wahedeveloper@gmail.com">
+          <span class="direct-no">01</span>
+          <span class="direct-copy">
+            <small>EMAIL</small>
+            <b>wahedeveloper@gmail.com</b>
           </span>
+          <b class="direct-arrow" aria-hidden="true">→</b>
         </a>
 
-        <a class="contact-link" href="https://www.linkedin.com/in/kanwaljeet-singh-aa99451b3/" target="_blank" rel="noopener">
-          <span class="contact-icon" aria-hidden="true">💼</span>
-          <span>
-            <b>LinkedIn</b>
-            <small>Let's connect</small>
+        <a class="direct-link" href="https://www.linkedin.com/in/kanwaljeet-singh-aa99451b3/" target="_blank" rel="noopener">
+          <span class="direct-no">02</span>
+          <span class="direct-copy">
+            <small>LINKEDIN</small>
+            <b>Let's connect</b>
           </span>
+          <b class="direct-arrow" aria-hidden="true">↗</b>
         </a>
 
-        <a class="contact-link" href="https://www.upwork.com/freelancers/kanwaljeetsingh" target="_blank" rel="noopener">
-          <span class="contact-icon" aria-hidden="true">🟢</span>
-          <span>
-            <b>Upwork</b>
-            <small>Hire me directly</small>
+        <a class="direct-link" href="https://www.upwork.com/freelancers/kanwaljeetsingh" target="_blank" rel="noopener">
+          <span class="direct-no">03</span>
+          <span class="direct-copy">
+            <small>UPWORK</small>
+            <b>Hire me directly</b>
           </span>
+          <b class="direct-arrow" aria-hidden="true">↗</b>
         </a>
 
-        <a class="contact-link" href="https://github.com/Kanwal97" target="_blank" rel="noopener">
-          <span class="contact-icon" aria-hidden="true">🐙</span>
-          <span>
-            <b>GitHub</b>
-            <small>@Kanwal97</small>
+        <a class="direct-link" href="https://github.com/Kanwal97" target="_blank" rel="noopener">
+          <span class="direct-no">04</span>
+          <span class="direct-copy">
+            <small>GITHUB</small>
+            <b>@Kanwal97</b>
           </span>
+          <b class="direct-arrow" aria-hidden="true">↗</b>
         </a>
       </div>
     </div>
@@ -1161,23 +1238,61 @@
 
 </main>
 
-<footer class="site-footer">
-  <div class="wrap footer-inner">
-    <p>© <span id="year">2026</span> Kanwaljeet Singh — built from scratch, no frameworks.</p>
-    <a href="#top" class="to-top">
-      Back to top
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
-    </a>
+<!-- ───────────────────── FOOTER ───────────────────── -->
+<footer class="foot">
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <span class="brand-mark" aria-hidden="true">KS</span>
+      <strong>KANWALJEET <em>SINGH</em></strong>
+      <span class="brand-title">FULL-STACK ENGINEER</span>
+      <p>Laravel and Next.js builds that survive real users, real money and real edge cases.</p>
+      <span class="foot-loc">PUNJAB, INDIA → GLOBAL DELIVERY</span>
+    </div>
+
+    <div class="foot-col">
+      <p class="skill-no">01</p>
+      <p class="label label-hot">EXPLORE</p>
+      <ul>
+        <li><a href="#work">The current issue <b aria-hidden="true">→</b></a></li>
+        <li><a href="#rack">The rack — 34 issues <b aria-hidden="true">→</b></a></li>
+        <li><a href="#games">The arcade <b aria-hidden="true">→</b></a></li>
+        <li><a href="#about">Masthead <b aria-hidden="true">→</b></a></li>
+      </ul>
+    </div>
+
+    <div class="foot-col">
+      <p class="skill-no">02</p>
+      <p class="label label-hot">THE WORK</p>
+      <ul>
+        <li><a href="https://kanwal97.github.io/gatka-warriors/" target="_blank" rel="noopener">Gatka Warriors <b aria-hidden="true">↗</b></a></li>
+        <li><a href="https://github.com/Kanwal97" target="_blank" rel="noopener">GitHub <b aria-hidden="true">↗</b></a></li>
+        <li><a href="https://www.upwork.com/freelancers/kanwaljeetsingh" target="_blank" rel="noopener">Upwork <b aria-hidden="true">↗</b></a></li>
+        <li><a href="https://www.linkedin.com/in/kanwaljeet-singh-aa99451b3/" target="_blank" rel="noopener">LinkedIn <b aria-hidden="true">↗</b></a></li>
+      </ul>
+    </div>
+
+    <div class="foot-col">
+      <p class="skill-no">03</p>
+      <p class="label label-hot">DIRECT CONTACT</p>
+      <ul>
+        <li><a href="mailto:wahedeveloper@gmail.com">wahedeveloper@gmail.com <b aria-hidden="true">→</b></a></li>
+      </ul>
+      <p class="foot-avail"><small>AVAILABLE FOR</small><span>CONTRACT · FREELANCE · LONG-TERM BUILDS</span></p>
+    </div>
+  </div>
+
+  <div class="wrap foot-bottom">
+    <p>© <span id="year">2026</span> KANWALJEET SINGH · BUILT FROM SCRATCH, NO FRAMEWORKS</p>
+    <a href="#top" class="to-top">RETURN TO TOP <b aria-hidden="true">↑</b></a>
   </div>
 </footer>
 
-<!-- ───────────────────────── GAME MODAL ───────────────────────── -->
+<!-- ───────────────────── GAME MODAL ───────────────────── -->
 <div class="modal" id="gameModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
   <div class="modal-backdrop" data-close></div>
   <div class="modal-panel" role="document">
     <header class="modal-head">
       <h2 id="modalTitle">Game</h2>
-      <div class="modal-tools" id="modalTools"></div>
       <button class="modal-close" type="button" data-close aria-label="Close game">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
       </button>
@@ -1187,7 +1302,7 @@
   </div>
 </div>
 
-<!-- ───────────────────────── IMAGE LIGHTBOX ───────────────────────── -->
+<!-- ───────────────────── IMAGE LIGHTBOX ───────────────────── -->
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Project screenshot" hidden>
   <div class="lightbox-backdrop" data-lb-close></div>
   <figure class="lightbox-figure">
@@ -1199,12 +1314,12 @@
   </figure>
 </div>
 
-<!-- ───────────────────────── CASE-STUDY MODAL ───────────────────────── -->
+<!-- ───────────────────── CASE-STUDY MODAL ───────────────────── -->
 <div class="modal case-modal" id="caseModal" role="dialog" aria-modal="true" aria-labelledby="caseTitle" hidden>
   <div class="modal-backdrop" data-case-close></div>
   <div class="modal-panel">
     <header class="modal-head">
-      <span class="case-tag" id="caseBadge"></span>
+      <span class="case-no" id="caseNo"></span>
       <h2 id="caseTitle">Case study</h2>
       <button class="modal-close" type="button" data-case-close aria-label="Close case study">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>

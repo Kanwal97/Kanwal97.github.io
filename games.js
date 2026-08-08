@@ -182,7 +182,7 @@
         ctx.clearRect(0, 0, W, H);
 
         // grid
-        ctx.strokeStyle = css('--line-soft') || '#eee';
+        ctx.strokeStyle = css('--line') || 'rgba(255,255,255,.1)';
         ctx.lineWidth = 1;
         for (let i = 1; i < COLS; i++) {
           ctx.beginPath();
@@ -199,16 +199,16 @@
 
         // apple
         if (apple) {
-          ctx.fillStyle = css('--mint') || '#34D3A6';
+          ctx.fillStyle = css('--game-food') || '#ffffff';
           roundRect(apple.x * CELL + 3, apple.y * CELL + 3, CELL - 6, CELL - 6, 5);
           ctx.fill();
         }
 
         // snake
-        const coral = css('--coral') || '#FF7A59';
-        const deep = css('--coral-deep') || '#F0562F';
+        const bodyHue = css('--orange') || '#ff6f00';
+        const headHue = css('--orange-lt') || '#ff9d31';
         body.forEach((seg, i) => {
-          ctx.fillStyle = i === 0 ? deep : coral;
+          ctx.fillStyle = i === 0 ? headHue : bodyHue;
           ctx.globalAlpha = i === 0 ? 1 : Math.max(.4, 1 - i / (body.length + 6));
           roundRect(seg.x * CELL + 2, seg.y * CELL + 2, CELL - 4, CELL - 4, 5);
           ctx.fill();
