@@ -144,8 +144,8 @@
     if (!node || !game) return;
     const v = readBest(game.bestKey);
     node.textContent = v === null || v === 0
-      ? 'NOT PLAYED YET'
-      : game.bestLabel(v).toUpperCase();
+      ? 'Not played yet'
+      : game.bestLabel(v);
   }
 
   Object.keys(window.GAMES || {}).forEach(paintBest);
@@ -308,7 +308,7 @@
   }
 
   function renderCase(p, no) {
-    caseNo.textContent = 'ISSUE ' + no;
+    caseNo.textContent = 'CASE STUDY ' + no;
     caseTitle.textContent = p.title;
 
     caseBody.innerHTML = `
