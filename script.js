@@ -402,6 +402,7 @@
   /* ── Shelf filter ─────────────────────────────────────────── */
   const tabs = $$('.tab');
   const rackEmpty = $('#rackEmpty');
+  const shelfCount = $('#shelfCount');
 
   tabs.forEach((tab) => {
     tab.addEventListener('click', () => {
@@ -414,7 +415,14 @@
         slot.classList.toggle('hide', !show);
         if (show) { shown++; slot.classList.add('in'); }
       });
+
       rackEmpty.hidden = shown > 0;
+      if (shelfCount) {
+        const label = tab.textContent.replace(/\s*\d+\s*$/, '').trim().toLowerCase();
+        shelfCount.textContent = f === 'all'
+          ? `Showing all ${shown} case studies`
+          : `Showing ${shown} ${label} case ${shown === 1 ? 'study' : 'studies'} of ${slots.length}`;
+      }
     });
   });
 

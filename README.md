@@ -49,7 +49,7 @@ so adding a component rarely needs theme-specific CSS:
 | `--sh-k` | A shadow multiplier (`1` dark, `.3` light). Light needs far weaker shadows; this scales all of them at once. |
 
 Only genuinely physical things get explicit per-theme values — the shelf metal
-(`--metal`, `--post`, `--metal-edge`), the covers (`--cover-*`), and the bloom
+(`--metal`, `--post`, `--metal-edge`), the cover art (`--shot-*`), and the bloom
 strengths (`--bloom*`). They're all grouped in the two `:root` blocks.
 
 Three things deliberately do **not** follow the theme:
@@ -71,16 +71,32 @@ The theme is set by an **inline script in `<head>`** before first paint —
 without it, light-mode visitors get a black flash. It follows the OS by
 default; the toggle overrides and remembers in `localStorage`.
 
-### Covers behave differently per theme
+### What a cover has to do
 
-On black, a screenshot at 20% opacity glows out of the dark and reads as
-texture. On white paper the same screenshot has nothing to contrast against, so
-light mode uses `mix-blend-mode: multiply` instead of opacity — and blurs it,
-because under multiply the screenshot's own text prints crisply and competes
-with the cover typography. **On paper the ghost has to read as texture, not
-content.** At rest the light cover is clean paper; hover sharpens and reveals
-the real screenshot. `--cover-scale` overscans only in light, so the blurred
-edge can't halo inside the cover's clip.
+The cover exists to answer, without a click, the three things a client asks:
+**what does it look like, what was the result, what was it built with.** An
+earlier version showed only a category, a title and a claim — 64% of every
+cover was empty, and the screenshot was ghosted to the point of invisibility.
+So each cover now carries a real screenshot, the result line and three stack
+chips, generated from `projects.js`.
+
+The screenshot is duotone at rest (`--shot-filter` + `--shot-tint`) so it still
+reads as editorial cover art rather than a raw screenshot, and returns to full
+colour on hover. **The two themes need genuinely different treatments** — these
+screenshots are light-UI, so dark mode has to pull brightness down hard
+(`.55`) while light mode barely touches it (`.88`). If you ever see the band
+look washed out on black, the dark block has picked up the light values.
+
+The band absorbs leftover vertical space (`flex: 1 1 auto; min-height: 26%`)
+so the cover is always full whatever the column count, and the title/result are
+line-clamped so no single long project can overflow the fixed 2:3 cover.
+`--shot-tint` starts with a dark top band because the category kicker is
+overlaid on the screenshot, whose tone varies per project.
+
+On phones the rack is a **vertical grid**, not the horizontal swipe shelf the
+arcade uses: 34 case studies in a swipe strip means 34 swipes and no overview.
+Mobile cards also drop the 2:3 ratio and size to content, so a full-width card
+is ~400px rather than ~630px tall.
 
 ## What's in here
 
@@ -127,9 +143,9 @@ The lifting part (`.mag-lift`) is a **separate child** from the shelf pseudo-ele
 so hovering raises the cover without dragging the shelf with it. On hover it takes
 `z-index: 20` to clear the neighbouring slots' retaining bars.
 
-Covers are generated from each project's own data — case-study number, category
-kicker, title and metric (title leads, metric supports) — with the screenshot ghosted behind them (see *Covers behave
-differently per theme* above). The full screenshot lives in the case-study modal.
+Covers are generated from each project's own data — screenshot, category kicker,
+title, result and three stack chips (see *What a cover has to do* above). The
+full-size screenshot and the challenge/build/result write-up live in the modal.
 
 ## Naming
 
@@ -153,8 +169,9 @@ wayfinding.
 ## Adding a project
 
 1. Append an entry to `window.PROJECTS` in `projects.js`.
-2. Append a matching `<article class="mag-slot">` to `#rackTier`, with the next
-   number in `.mag-no` and `.mag-case`.
+2. Append a matching `<article class="mag-slot">` to `#rackTier`: `.mag-shot`
+   (screenshot + `.mag-kicker`), then `.mag-title`, `.mag-result`, up to three
+   `.mag-stack i` chips, and `.mag-foot` / `.mag-case` with the next number.
 3. Bump the `ALL` count and the relevant category count in `.shelf-tabs`.
 
 ## Deploy to GitHub Pages

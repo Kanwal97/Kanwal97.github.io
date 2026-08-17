@@ -76,15 +76,15 @@
 
   /* Magazine covers */
   --cover-bg: #050505;
-  --cover-scrim:
-    radial-gradient(circle at 50% 20%, rgba(255, 111, 0, .16), transparent 46%),
-    linear-gradient(165deg, rgba(9, 9, 9, .5), rgba(3, 3, 3, .92) 68%);
-  --cover-img: .2;
-  --cover-img-hot: .44;
-  --cover-grey: grayscale(1) contrast(1.15);
-  --cover-grey-hot: grayscale(.15) contrast(1.05);
-  --cover-blend: normal;
-  --cover-scale: 1;
+  --shot-bg: #0a0a0a;
+  --shot-filter: grayscale(.8) contrast(1.15) brightness(.55);
+  --shot-filter-hot: grayscale(0) contrast(1.02) brightness(1);
+  --shot-tint:
+    linear-gradient(180deg, rgba(3, 3, 3, .8) 0, rgba(3, 3, 3, 0) 36%),
+    linear-gradient(165deg, rgba(255, 111, 0, .2), rgba(3, 3, 3, .42));
+  --shot-tint-hot:
+    linear-gradient(180deg, rgba(3, 3, 3, .72) 0, rgba(3, 3, 3, 0) 36%),
+    linear-gradient(165deg, rgba(255, 111, 0, .08), rgba(3, 3, 3, .12));
   --tile-face: rgb(255 255 255 / .06);
   --card-base: #0b0b0b;
   --art-bg: linear-gradient(160deg, #151515, #000 72%);
@@ -160,19 +160,15 @@
   --veil-panel: rgb(250 248 245 / .9);
 
   --cover-bg: #ffffff;
-  --cover-scrim:
-    radial-gradient(circle at 50% 18%, rgba(255, 111, 0, .13), transparent 48%),
-    linear-gradient(165deg, rgb(255 255 255 / .1), rgb(255 255 255 / .88) 66%);
-  /* Multiply, not opacity: white UI on white paper has nothing to contrast
-     against. And blur, because under multiply the screenshot's own text
-     prints crisply and competes with the cover typography — on paper the
-     ghost has to read as texture, not as content. Hover sharpens it. */
-  --cover-img: .62;
-  --cover-img-hot: .5;
-  --cover-grey: grayscale(1) contrast(1.1) blur(3px);
-  --cover-grey-hot: grayscale(.25) contrast(1.05) blur(.5px);
-  --cover-blend: multiply;
-  --cover-scale: 1.06;
+  --shot-bg: #e7e2d9;
+  --shot-filter: grayscale(.8) contrast(1.12) brightness(.88);
+  --shot-filter-hot: grayscale(0) contrast(1) brightness(1);
+  --shot-tint:
+    linear-gradient(180deg, rgba(26, 19, 14, .78) 0, rgba(26, 19, 14, 0) 36%),
+    linear-gradient(165deg, rgba(255, 111, 0, .18), rgba(60, 48, 38, .16));
+  --shot-tint-hot:
+    linear-gradient(180deg, rgba(26, 19, 14, .7) 0, rgba(26, 19, 14, 0) 36%),
+    linear-gradient(165deg, rgba(255, 111, 0, .06), rgba(60, 48, 38, .04));
   --tile-face: #ffffff;
   --card-base: #ffffff;
   --art-bg: linear-gradient(160deg, #f3f0ea, #e4dfd6 72%);
@@ -1379,12 +1375,30 @@ a { color: inherit; }
 }
 
 /* Shelf tabs */
+/* Sticky so the filter is reachable anywhere in a 4000px shelf */
 .shelf-tabs {
+  position: sticky;
+  top: 62px;   /* clears the sticky rail */
+  z-index: 30;
+  margin-inline: -22px;
+  padding: 14px 22px;
+  background: color-mix(in srgb, var(--bg-2) 88%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line-2);
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 8px;
-  margin-bottom: 44px;
+  margin-bottom: 40px;
+}
+.shelf-count {
+  width: 100%;
+  margin: 10px 0 0;
+  text-align: center;
+  font-size: var(--t-meta);
+  font-weight: 700;
+  color: var(--dim);
 }
 .tab {
   display: inline-flex;
@@ -1569,7 +1583,8 @@ a { color: inherit; }
 /* Cover — strict 2:3, generated from the project's own data */
 .mag-cover {
   position: relative;
-  display: block;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   aspect-ratio: 2 / 3;
   border: 1px solid rgb(var(--fg-rgb) / .15);
@@ -1580,70 +1595,117 @@ a { color: inherit; }
   overflow: hidden;
   transition: border-color .3s var(--ease), box-shadow .3s var(--ease);
 }
-.mag-cover img {
+/* The screenshot absorbs whatever vertical slack the text doesn't use, so the
+   cover is always full whatever the column count or title length. */
+.mag-shot {
+  position: relative;
+  display: block;
+  flex: 1 1 auto;
+  min-height: 26%;
+  border-bottom: 1px solid rgb(var(--fg-rgb) / .14);
+  background: var(--shot-bg);
+  overflow: hidden;
+}
+.mag-shot img {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: top center;
-  opacity: var(--cover-img);
-  filter: var(--cover-grey);
-  mix-blend-mode: var(--cover-blend);
-  /* Overscan only matters where the ghost is blurred (light), and it shifts
-     the crop, so keep dark at 1 */
-  scale: var(--cover-scale);
-  transition: opacity .35s var(--ease), filter .35s var(--ease);
+  filter: var(--shot-filter);
+  transition: filter .35s var(--ease), transform .5s var(--ease);
 }
-.mag-scrim {
+.mag-shot::after {
+  content: '';
   position: absolute;
   inset: 0;
-  background: var(--cover-scrim);
+  background: var(--shot-tint);
+  transition: background .35s var(--ease);
   pointer-events: none;
 }
+.mag-lift:hover .mag-shot img,
+.mag-lift:focus-visible .mag-shot img {
+  filter: var(--shot-filter-hot);
+  transform: scale(1.06);
+}
+.mag-lift:hover .mag-shot::after,
+.mag-lift:focus-visible .mag-shot::after { background: var(--shot-tint-hot); }
 
 .mag-face {
   position: relative;
   z-index: 2;
   display: flex;
+  flex: 0 0 auto;
   flex-direction: column;
-  height: 100%;
-  padding: 16px 15px 14px;
+  padding: 13px 14px 12px;
 }
 .mag-kicker {
+  position: absolute;
+  z-index: 2;
+  top: 10px;
+  left: 11px;
+  right: 11px;
   font-size: var(--t-micro);
   font-weight: 900;
   letter-spacing: 1.6px;
   line-height: 1.3;
   text-transform: uppercase;
-  color: var(--accent-ink);
+  color: #fff;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, .7);
 }
-/* Title leads, metric supports underneath. The metric used to sit above the
-   title at similar weight, so the eye hit the claim before the project name. */
-.mag-metric {
+/* The card now answers the three things a client asks before clicking:
+   what does it look like, what was the result, what was it built with. */
+.mag-result {
   margin-top: 7px;
   font-size: var(--t-meta);
   font-weight: 700;
   line-height: 1.4;
-  letter-spacing: 0;
   color: var(--accent-ink);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.mag-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 9px;
+  max-height: 3.4em;
+  overflow: hidden;
+}
+.mag-stack i {
+  padding: 3px 7px;
+  border: 1px solid var(--line-2);
+  border-radius: 5px;
+  background: rgb(var(--fg-rgb) / .05);
+  font-family: var(--mono);
+  font-size: var(--t-micro);
+  font-style: normal;
+  line-height: 1.4;
+  color: var(--dim);
+  white-space: nowrap;
 }
 .mag-title {
-  margin-top: auto;
   font-size: clamp(16px, 1.35vw, 20px);
   font-weight: 900;
   line-height: 1.12;
   letter-spacing: -.02em;
   color: var(--ink);
   text-wrap: balance;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
 }
 .mag-foot {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  margin-top: 13px;
-  padding-top: 11px;
+  margin-top: 11px;
+  padding-top: 10px;
   border-top: 1px solid rgb(var(--fg-rgb) / .14);
 }
 .mag-no {
@@ -1653,10 +1715,10 @@ a { color: inherit; }
   color: var(--accent-ink);
 }
 .mag-read {
-  font-size: var(--t-micro);
-  font-weight: 900;
-  letter-spacing: 1.6px;
-  color: var(--mute);
+  font-size: var(--t-meta);
+  font-weight: 800;
+  letter-spacing: 0;
+  color: var(--accent-ink);
 }
 
 .mag-lift:hover .mag-cover,
@@ -1666,11 +1728,6 @@ a { color: inherit; }
     0 32px 62px rgb(var(--sh-rgb) / calc(.96 * var(--sh-k))),
     0 0 38px rgba(255, 111, 0, .38),
     8px 0 0 rgb(var(--fg-rgb) / .09);
-}
-.mag-lift:hover .mag-cover img,
-.mag-lift:focus-visible .mag-cover img {
-  opacity: var(--cover-img-hot);
-  filter: var(--cover-grey-hot);
 }
 
 /* Hover tab */
@@ -3007,6 +3064,7 @@ a { color: inherit; }
 /* Mobile rack — a scroll-snapping shelf */
 @media (max-width: 680px) {
   .rack-section { padding: 58px 12px 72px; }
+  .shelf-tabs { top: 0; }   /* the rail is hidden at this width */
   .rack-head { margin-bottom: 30px; }
   .rack-head p { max-width: 380px; }
   .shelf-tabs { margin-bottom: 30px; }
@@ -3018,7 +3076,14 @@ a { color: inherit; }
   .newsstand::before { left: 6px; }
   .newsstand::after  { right: 6px; }
 
-  .rack-tier,
+  /* The arcade keeps the swipe shelf (5 cartridges). The rack does not:
+     34 case studies in a horizontal strip means 34 swipes and no overview. */
+  .rack-tier {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 0 6px;
+  }
   .cart-tier {
     display: flex;
     gap: 20px;
@@ -3035,12 +3100,18 @@ a { color: inherit; }
   .rack-tier::-webkit-scrollbar-thumb,
   .cart-tier::-webkit-scrollbar-thumb { background: var(--orange); }
 
-  .mag-slot,
   .cart-slot {
     flex: 0 0 64vw;
     min-width: 64vw;
     max-width: 64vw;
     scroll-snap-align: center;
+  }
+  .mag-slot { width: 100%; }
+  .mag-cover { aspect-ratio: auto; }
+  .mag-shot {
+    flex: 0 0 auto;
+    min-height: 0;
+    aspect-ratio: 16 / 10;
   }
   /* No hover on touch — show the tab and drop the tilt */
   .mag-lift,
@@ -3079,7 +3150,6 @@ a { color: inherit; }
     background: rgb(var(--fg-rgb) / .025);
   }
   .newsstand { padding: 28px 12px 24px; }
-  .mag-slot,
   .cart-slot { flex-basis: 74vw; min-width: 74vw; max-width: 74vw; }
 }
 
